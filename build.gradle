@@ -1,0 +1,27 @@
+apply plugin: 'com.github.ben-manes.versions'
+
+buildscript {
+  ext.kotlin_version = '1.2.31'
+  repositories {
+    google()
+    mavenCentral()
+    gradlePluginPortal()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:3.2.0-alpha08'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    classpath 'com.github.ben-manes:gradle-versions-plugin:0.17.0'
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    jcenter()
+  }
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '4.6'
+  distributionType = Wrapper.DistributionType.ALL
+}

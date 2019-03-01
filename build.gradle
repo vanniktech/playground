@@ -8,9 +8,9 @@ buildscript {
     gradlePluginPortal()
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.4.0-beta03'
+    classpath 'com.android.tools.build:gradle:3.4.0-beta05'
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    classpath 'com.github.ben-manes:gradle-versions-plugin:0.20.0'
+    classpath 'com.github.ben-manes:gradle-versions-plugin:0.21.0'
   }
 }
 
@@ -23,6 +23,6 @@ allprojects {
 }
 
 wrapper {
-  gradleVersion = '5.1.1'
+  gradleVersion = '5.2.1'
   distributionType = Wrapper.DistributionType.ALL
 }

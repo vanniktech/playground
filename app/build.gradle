@@ -5,7 +5,7 @@ android {
   compileSdkVersion 29
   defaultConfig {
     applicationId "com.vanniktech.playground"
-    minSdkVersion 15
+    minSdkVersion 21
     targetSdkVersion 29
     versionCode 1
     versionName "1.0.0"
@@ -19,15 +19,20 @@ android {
 
 dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  implementation 'androidx.appcompat:appcompat:1.1.0'
-  implementation 'com.google.android.material:material:1.1.0-rc01'
+  implementation 'androidx.appcompat:appcompat:1.2.0'
+  implementation 'com.google.android.material:material:1.2.0'
   implementation 'androidx.annotation:annotation:1.1.0'
-  implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+  implementation 'androidx.constraintlayout:constraintlayout:2.0.0-rc1'
   implementation "io.reactivex.rxjava2:rxjava:2.2.19"
+  implementation "com.airbnb.android:lottie:3.4.1"
+}
 
+dependencies {
   testImplementation 'junit:junit:4.13'
-  testImplementation "org.assertj:assertj-core:3.15.0"
+  testImplementation "org.assertj:assertj-core:3.16.1"
+}
 
+dependencies {
   androidTestImplementation 'androidx.test:runner:1.2.0'
   androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

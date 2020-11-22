@@ -23,6 +23,8 @@ dependencies {
   val ktor = "1.4.1"
   implementation("io.ktor:ktor-client-core-jvm:$ktor")
   implementation("io.ktor:ktor-client-okhttp:$ktor")
+
+  implementation("com.jakewharton.picnic:picnic:0.5.0")
 }
 
 dependencies {

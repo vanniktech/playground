@@ -5,5 +5,10 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     >
-  
+  <include
+      android:id="@+id/first"
+      layout="@layout/rss_reader_adapter_item_feed"/>
+  <include
+      android:id="@+id/second"
+      layout="@layout/rss_reader_adapter_item_feed"/>
 </LinearLayout>

@@ -10,4 +10,15 @@
   <dimen name="large">24dp</dimen>
   <dimen name="xlarge">32dp</dimen>
   <dimen name="xxlarge">40dp</dimen>
+
+
+  <dimen name="rss_reader_text_max_width">400dp</dimen>
+
+  <!-- Image Preview. -->
+  <dimen name="rss_reader_default_image_width">112dp</dimen>
+  <dimen name="rss_reader_default_image_height">63dp</dimen>
+
+  <!-- Dimens that can scale. -->
+  <dimen name="rss_reader_title_text_size">20sp</dimen>
+  <dimen name="rss_reader_description_text_size">16sp</dimen>
 </resources>

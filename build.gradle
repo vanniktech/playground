@@ -1,26 +1,14 @@
-apply plugin: "com.github.ben-manes.versions"
-
-tasks.named("dependencyUpdates").configure {
-  rejectVersionIf {
-    def version = it.candidate.version
-    def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { keyword -> version.toUpperCase().contains(keyword) }
-    def regex = /^[0-9,.v-]+(-r)?$/
-    return (!stableKeyword && !(version ==~ regex)) || version == "2.71828"
-  }
-}
-
 buildscript {
-  ext.kotlin_version = "1.5.21"
+  ext.kotlin_version = "1.5.31"
   repositories {
     mavenCentral()
     google()
     gradlePluginPortal()
   }
   dependencies {
-    classpath "com.android.tools.build:gradle:7.0.1"
+    classpath "com.android.tools.build:gradle:7.0.3"
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
-    classpath "com.github.ben-manes:gradle-versions-plugin:0.39.0"
   }
 }
 
@@ -28,11 +16,10 @@ allprojects {
   repositories {
     mavenCentral()
     google()
-    jcenter()
   }
 }
 
 wrapper {
-  gradleVersion = "7.1.1"
+  gradleVersion = "7.2"
   distributionType = Wrapper.DistributionType.ALL
 }

@@ -18,9 +18,9 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 }
 
 dependencies {
-  implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.0")
+  implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
 
-  val ktor = "1.6.3"
+  val ktor = "1.6.4"
   implementation("io.ktor:ktor-client-core-jvm:$ktor")
   implementation("io.ktor:ktor-client-okhttp:$ktor")
 

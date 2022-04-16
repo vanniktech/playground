@@ -1,5 +1,14 @@
 apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
+apply plugin: "com.squareup.sqldelight"
+
+sqldelight {
+  QueryWrapper {
+    packageName = "com.vanniktech.playground"
+    schemaOutputDirectory = file("src/main/sqldelight/databases")
+    verifyMigrations = true
+  }
+}
 
 android {
   compileSdkVersion 31

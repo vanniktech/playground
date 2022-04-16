@@ -1,5 +1,5 @@
 package com.vanniktech.playground.kotlin
 
-fun main(args: Array<String>) {
+fun main() {
   print("Hello World")
 }

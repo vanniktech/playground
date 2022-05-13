@@ -1,0 +1,11 @@
+import kotlin.Int;
+
+CREATE TABLE myTable (
+  id TEXT PRIMARY KEY,
+  foo INTEGER AS Int NOT NULL
+);
+
+upsert:
+INSERT OR REPLACE INTO myTable
+VALUES ?
+;

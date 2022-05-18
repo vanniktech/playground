@@ -1,0 +1,85 @@
+apply plugin: 'org.jetbrains.kotlin.multiplatform'
+apply plugin: 'org.jetbrains.kotlin.native.cocoapods'
+apply plugin: 'kotlinx-serialization'
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-parcelize'
+
+// CocoaPods requires a version.
+version = 1.0
+
+kotlin {
+  sourceSets {
+    all {
+      languageSettings {
+        optIn("kotlin.RequiresOptIn")
+      }
+    }
+  }
+
+  sourceSets.commonMain.dependencies {
+    api "org.jetbrains.kotlinx:kotlinx-datetime:0.3.2"
+  }
+
+  sourceSets.commonTest.dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}"
+    implementation "org.jetbrains.kotlin:kotlin-test-annotations-common:${kotlinVersion}"
+    implementation "org.jetbrains.kotlin:kotlin-test-common:${kotlinVersion}"
+  }
+
+  android("android")
+
+  sourceSets.androidMain.dependencies {
+  }
+
+  sourceSets.androidTest.dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"
+  }
+
+  ios {
+    binaries.all {
+      freeCompilerArgs += "-Xg0" // Required for CrashKiOS.
+      if (it instanceof org.jetbrains.kotlin.gradle.plugin.mpp.Framework) {
+        it.isStatic = true // Required for CrashKiOS.
+        it.embedBitcode("YES".equals(System.getenv("ENABLE_BITCODE")) ? "bitcode" : "marker")
+        it.setFreeCompilerArgs(it.getFreeCompilerArgs() + "-Xobjc-generics")
+      }
+    }
+  }
+
+  sourceSets.iosMain.dependencies {
+    api "co.touchlab:crashkios:0.6.0"
+  }
+
+  cocoapods {
+    summary = "Shared"
+    homepage = "https://www.vanniktech.de/"
+  }
+}
+
+android {
+  namespace "com.vanniktech.playground.kmp"
+  compileSdkVersion(31)
+
+  defaultConfig {
+    minSdkVersion(21)
+  }
+
+  buildFeatures {
+    viewBinding = true
+    buildConfig = false
+  }
+
+  compileOptions {
+    coreLibraryDesugaringEnabled true
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+  }
+
+  packagingOptions {
+    exclude("META-INF/*.kotlin_module")
+  }
+}
+
+dependencies {
+  coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:1.1.5"
+}

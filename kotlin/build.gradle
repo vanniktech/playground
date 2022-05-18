@@ -12,6 +12,7 @@ java {
 }
 
 dependencies {
+  implementation(project(":kmp"))
   implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinSerialization")
 
   implementation("io.ktor:ktor-client-core-jvm:$ktorVersion")

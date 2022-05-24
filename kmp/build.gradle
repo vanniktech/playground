@@ -35,6 +35,15 @@ kotlin {
     implementation "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"
   }
 
+  jvm("jvm")
+
+  sourceSets.jvmMain.dependencies {
+  }
+
+  sourceSets.jvmTest.dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"
+  }
+
   ios {
     binaries.all {
       freeCompilerArgs += "-Xg0" // Required for CrashKiOS.

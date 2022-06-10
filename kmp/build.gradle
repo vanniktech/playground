@@ -4,9 +4,6 @@ apply plugin: 'kotlinx-serialization'
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-parcelize'
 
-// CocoaPods requires a version.
-version = 1.0
-
 kotlin {
   sourceSets {
     all {
@@ -17,7 +14,7 @@ kotlin {
   }
 
   sourceSets.commonMain.dependencies {
-    api "org.jetbrains.kotlinx:kotlinx-datetime:0.3.2"
+    api "org.jetbrains.kotlinx:kotlinx-datetime:0.3.3"
   }
 
   sourceSets.commonTest.dependencies {
@@ -62,6 +59,7 @@ kotlin {
   cocoapods {
     summary = "Shared"
     homepage = "https://www.vanniktech.de/"
+    version = "1.0.0"
   }
 }
 

@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'kmp'
-    spec.version                  = '1.0'
+    spec.version                  = '1.0.0'
     spec.homepage                 = 'https://www.vanniktech.de/'
     spec.source                   = { :http=> ''}
     spec.authors                  = ''

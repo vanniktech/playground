@@ -1,17 +1,13 @@
 buildscript {
-  ext.kotlinVersion = "1.7.0"
-  ext.kotlinSerialization = "1.3.3"
-  ext.ktorVersion = "2.0.3"
-
   repositories {
     mavenCentral()
     google()
     gradlePluginPortal()
   }
   dependencies {
-    classpath "com.android.tools.build:gradle:7.2.1"
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-    classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion"
+    classpath(libs.plugin.androidgradleplugin)
+    classpath(libs.plugin.kotlin)
+    classpath(libs.plugin.kotlin.serialization)
   }
 }
 
@@ -23,6 +19,22 @@ allprojects {
 }
 
 wrapper {
-  gradleVersion = "7.4.2"
+  gradleVersion = libs.versions.gradle.get()
   distributionType = Wrapper.DistributionType.ALL
+}
+
+allprojects {
+  afterEvaluate {
+    // To avoid:
+    // The Kotlin source set androidAndroidTestRelease was configured but not added to any Kotlin compilation. You can add a source set to a target"s compilation by connecting it with the compilation"s default source set using "dependsOn".
+    // See https://kotlinlang.org/docs/reference/building-mpp-with-gradle.html#connecting-source-sets
+    project.extensions.findByType(org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension.class)?.sourceSets?.removeAll {
+      [
+        "androidAndroidTestRelease",
+        "androidTestFixtures",
+        "androidTestFixturesDebug",
+        "androidTestFixturesRelease"
+      ].contains(it.name)
+    }
+  }
 }

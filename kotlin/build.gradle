@@ -12,15 +12,14 @@ java {
 }
 
 dependencies {
-  implementation(project(":kmp"))
-  implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinSerialization")
-
-  implementation("io.ktor:ktor-client-core-jvm:$ktorVersion")
-  implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
-
-  implementation("com.jakewharton.picnic:picnic:0.6.0")
+  implementation project(":kmp")
+  implementation libs.kotlinx.serialization.json
+  implementation libs.ktor.client.core.jvm
+  implementation libs.ktor.client.okhttp
+  implementation libs.picnic
+  implementation libs.okio
 }
 
 dependencies {
-  testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+  testImplementation libs.kotlin.test.junit
 }

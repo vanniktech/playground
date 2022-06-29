@@ -14,13 +14,16 @@ kotlin {
   }
 
   sourceSets.commonMain.dependencies {
-    api "org.jetbrains.kotlinx:kotlinx-datetime:0.4.0"
+    api libs.kotlinx.datetime
+    api libs.uuid
+    api libs.multiplatform.settings
   }
 
   sourceSets.commonTest.dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}"
-    implementation "org.jetbrains.kotlin:kotlin-test-annotations-common:${kotlinVersion}"
-    implementation "org.jetbrains.kotlin:kotlin-test-common:${kotlinVersion}"
+    implementation libs.kotlin.reflect
+    implementation libs.kotlin.test.annotations.common
+    implementation libs.kotlin.test.common
+    implementation libs.multiplatform.settings.test
   }
 
   android("android")
@@ -29,7 +32,7 @@ kotlin {
   }
 
   sourceSets.androidTest.dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"
+    implementation libs.kotlin.test.junit
   }
 
   jvm("jvm")
@@ -38,7 +41,7 @@ kotlin {
   }
 
   sourceSets.jvmTest.dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"
+    implementation libs.kotlin.test.junit
   }
 
   ios {
@@ -53,7 +56,7 @@ kotlin {
   }
 
   sourceSets.iosMain.dependencies {
-    api "co.touchlab:crashkios:0.6.0"
+    api libs.crashkios
   }
 
   cocoapods {
@@ -65,10 +68,10 @@ kotlin {
 
 android {
   namespace "com.vanniktech.playground.kmp"
-  compileSdkVersion(31)
+  compileSdkVersion libs.versions.compileSdk.get() as int
 
   defaultConfig {
-    minSdkVersion(21)
+    minSdkVersion libs.versions.minSdk.get() as int
   }
 
   buildFeatures {
@@ -92,5 +95,5 @@ android {
 }
 
 dependencies {
-  coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:1.1.6"
+  coreLibraryDesugaring libs.desugar.jdk.libs
 }

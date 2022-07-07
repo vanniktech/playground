@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     binding.root.setOnClickListener {
       open<MainActivity> {
+        // Reproducer for https://youtrack.jetbrains.com/issue/KTIJ-22049
         it.putExtra("TEST", Foo.BAR)
       }
     }

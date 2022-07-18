@@ -1,3 +1,4 @@
 include ':app'
 include ':kmp'
+include ':kmp-something'
 include ':kotlin'

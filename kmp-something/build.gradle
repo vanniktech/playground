@@ -1,0 +1,60 @@
+apply plugin: 'org.jetbrains.kotlin.multiplatform'
+apply plugin: 'kotlinx-serialization'
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-parcelize'
+
+kotlin {
+  sourceSets.commonMain.dependencies {
+    api project(":kmp")
+  }
+
+  android("android")
+
+  sourceSets.androidMain.dependencies {
+  }
+
+  sourceSets.androidTest.dependencies {
+    implementation libs.kotlin.test.junit
+  }
+
+  jvm("jvm")
+
+  sourceSets.jvmMain.dependencies {
+  }
+
+  sourceSets.jvmTest.dependencies {
+    implementation libs.kotlin.test.junit
+  }
+}
+
+android {
+  namespace "com.vanniktech.playground.kmp"
+  compileSdkVersion libs.versions.compileSdk.get() as int
+
+  defaultConfig {
+    minSdkVersion libs.versions.minSdk.get() as int
+  }
+
+  buildFeatures {
+    viewBinding = true
+    buildConfig = false
+  }
+
+  compileOptions {
+    coreLibraryDesugaringEnabled true
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+  }
+
+  kotlinOptions {
+    jvmTarget = JavaVersion.VERSION_11.toString()
+  }
+
+  packagingOptions {
+    exclude("META-INF/*.kotlin_module")
+  }
+}
+
+dependencies {
+  coreLibraryDesugaring libs.desugar.jdk.libs
+}

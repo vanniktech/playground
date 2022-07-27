@@ -1,5 +1,5 @@
 apply plugin: 'org.jetbrains.kotlin.multiplatform'
-apply plugin: 'org.jetbrains.kotlin.native.cocoapods'
+//apply plugin: 'org.jetbrains.kotlin.native.cocoapods'
 apply plugin: 'kotlinx-serialization'
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-parcelize'
@@ -27,35 +27,35 @@ kotlin {
     implementation libs.kotlin.test.junit
   }
 
-  jvm("jvm")
+//  jvm("jvm")
+//
+//  sourceSets.jvmMain.dependencies {
+//  }
+//
+//  sourceSets.jvmTest.dependencies {
+//    implementation libs.kotlin.test.junit
+//  }
 
-  sourceSets.jvmMain.dependencies {
-  }
+//  ios {
+//    binaries.all {
+//      freeCompilerArgs += "-Xg0" // Required for CrashKiOS.
+//      if (it instanceof org.jetbrains.kotlin.gradle.plugin.mpp.Framework) {
+//        it.isStatic = true // Required for CrashKiOS.
+//        it.embedBitcode("YES".equals(System.getenv("ENABLE_BITCODE")) ? "bitcode" : "marker")
+//        it.setFreeCompilerArgs(it.getFreeCompilerArgs() + "-Xobjc-generics")
+//      }
+//    }
+//  }
 
-  sourceSets.jvmTest.dependencies {
-    implementation libs.kotlin.test.junit
-  }
-
-  ios {
-    binaries.all {
-      freeCompilerArgs += "-Xg0" // Required for CrashKiOS.
-      if (it instanceof org.jetbrains.kotlin.gradle.plugin.mpp.Framework) {
-        it.isStatic = true // Required for CrashKiOS.
-        it.embedBitcode("YES".equals(System.getenv("ENABLE_BITCODE")) ? "bitcode" : "marker")
-        it.setFreeCompilerArgs(it.getFreeCompilerArgs() + "-Xobjc-generics")
-      }
-    }
-  }
-
-  sourceSets.iosMain.dependencies {
-    api libs.crashkios
-  }
-
-  cocoapods {
-    summary = "Shared"
-    homepage = "https://www.vanniktech.de/"
-    version = "1.0.0"
-  }
+//  sourceSets.iosMain.dependencies {
+//    api libs.crashkios
+//  }
+//
+//  cocoapods {
+//    summary = "Shared"
+//    homepage = "https://www.vanniktech.de/"
+//    version = "1.0.0"
+//  }
 }
 
 android {

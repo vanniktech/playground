@@ -14,6 +14,7 @@ enum class AppVersion(
   V0_67_0(
     changelog = listOf(
       Changelog(
+        // One possible 'solution': Replace AVATAR with null.
         requiredFeatureFlag = AVATAR,
       )
     ),

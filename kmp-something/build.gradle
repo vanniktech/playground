@@ -16,15 +16,6 @@ kotlin {
   sourceSets.androidTest.dependencies {
     implementation libs.kotlin.test.junit
   }
-
-  jvm("jvm")
-
-  sourceSets.jvmMain.dependencies {
-  }
-
-  sourceSets.jvmTest.dependencies {
-    implementation libs.kotlin.test.junit
-  }
 }
 
 android {

@@ -5,7 +5,7 @@ targetSdk = "33"
 
 kotlin = "1.7.10"
 kotlinxserialization = "1.4.0"
-ktor = "2.1.0"
+ktor = "2.1.1"
 multiplatformsettings = "1.0.0-alpha01"
 
 [libraries]

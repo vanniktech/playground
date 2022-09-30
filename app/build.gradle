@@ -2,15 +2,16 @@ apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
 
 android {
-  compileSdkVersion libs.versions.compileSdk.get() as int
+  namespace = "com.vanniktech.playground"
+  compileSdk = libs.versions.compileSdk.get() as int
 
   defaultConfig {
-    applicationId "com.vanniktech.playground"
-    minSdkVersion libs.versions.minSdk.get() as int
-    targetSdkVersion libs.versions.targetSdk.get() as int
-    versionCode 1
-    versionName "1.0.0"
-    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    applicationId = "com.vanniktech.playground"
+    minSdk = libs.versions.minSdk.get() as int
+    targetSdk = libs.versions.targetSdk.get() as int
+    versionCode = 1
+    versionName = "1.0.0"
+    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
 
   buildFeatures {
@@ -18,7 +19,7 @@ android {
   }
 
   compileOptions {
-    coreLibraryDesugaringEnabled true
+    coreLibraryDesugaringEnabled = true
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
   }

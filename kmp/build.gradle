@@ -52,6 +52,10 @@ kotlin {
   }
 
   cocoapods {
+    framework {
+      isStatic = true
+    }
+
     summary = "Shared"
     homepage = "https://www.vanniktech.de/"
     version = "1.0.0"

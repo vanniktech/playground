@@ -6,7 +6,7 @@ targetSdk = "33"
 kotlin = "1.7.20"
 kotlinxserialization = "1.4.0"
 ktor = "2.1.2"
-multiplatformsettings = "1.0.0-alpha01"
+multiplatformsettings = "1.0.0-RC"
 
 [libraries]
 adapterdelegates4-kotlin-dsl = { module = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl", version = "4.3.2" }

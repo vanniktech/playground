@@ -29,7 +29,7 @@ multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", vers
 multiplatform-settings-test = { module = "com.russhwolf:multiplatform-settings-test", version.ref = "multiplatformsettings" }
 okio = { module = "com.squareup.okio:okio", version = "3.2.0" }
 picnic = { module = "com.jakewharton.picnic:picnic", version = "0.6.0" }
-plugin-androidgradleplugin = { module = "com.android.tools.build:gradle", version = "7.3.0" }
+plugin-androidgradleplugin = { module = "com.android.tools.build:gradle", version = "7.3.1" }
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 plugin-kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
 rxandroid = { module = "io.reactivex.rxjava2:rxandroid", version = "2.1.1" }

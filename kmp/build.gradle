@@ -23,11 +23,12 @@ kotlin {
   sourceSets.androidMain.dependencies {
   }
 
-  sourceSets.androidTest.dependencies {
+  sourceSets.androidUnitTest.dependencies {
     implementation libs.kotlin.test.junit
   }
 
   jvm("jvm")
+  jvmToolchain(11)
 
   sourceSets.jvmMain.dependencies {
   }
@@ -38,11 +39,9 @@ kotlin {
 
   ios {
     binaries.all {
-      freeCompilerArgs += "-Xg0" // Required for CrashKiOS.
       if (it instanceof org.jetbrains.kotlin.gradle.plugin.mpp.Framework) {
         it.isStatic = true // Required for CrashKiOS.
         it.embedBitcode("YES".equals(System.getenv("ENABLE_BITCODE")) ? "bitcode" : "marker")
-        it.setFreeCompilerArgs(it.getFreeCompilerArgs() + "-Xobjc-generics")
       }
     }
   }

@@ -14,7 +14,7 @@ androidx-annotation = { module = "androidx.annotation:annotation", version = "1.
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.6.1" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version = "2.1.4" }
 crashkios = { module = "co.touchlab:crashkios", version = "0.6.0" }
-desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version = "1.2.2" }
+desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version = "2.0.2" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 kotlin-test-annotations-common = { module = "org.jetbrains.kotlin:kotlin-test-annotations-common", version.ref = "kotlin" }
 kotlin-test-common = { module = "org.jetbrains.kotlin:kotlin-test-common", version.ref = "kotlin" }

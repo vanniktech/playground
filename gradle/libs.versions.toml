@@ -41,3 +41,4 @@ rxandroid = { module = "io.reactivex.rxjava2:rxandroid", version = "2.1.1" }
 rxjava = { module = "io.reactivex.rxjava2:rxjava", version = "2.2.21" }
 timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }
 uuid = { module = "com.benasher44:uuid", version = "0.7.0" }
+play-services-maps = { module = "com.google.android.gms:play-services-maps", version = "18.1.0" }

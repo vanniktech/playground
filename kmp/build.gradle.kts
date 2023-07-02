@@ -105,7 +105,7 @@ android {
     targetCompatibility = JavaVersion.VERSION_11
   }
 
-  packagingOptions {
+  packaging {
     resources.excludes.add("META-INF/*.kotlin_module")
   }
 }

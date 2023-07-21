@@ -1,50 +1,33 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.BitcodeEmbeddingMode
-
 plugins {
   id("com.android.library")
   id("org.jetbrains.kotlin.multiplatform")
-  id("org.jetbrains.kotlin.native.cocoapods")
-  id("org.jetbrains.kotlin.plugin.parcelize")
-  id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 kotlin {
   android()
   jvm()
   jvmToolchain {
-    languageVersion.set(JavaLanguageVersion.of("11"))
+    languageVersion.set(JavaLanguageVersion.of(11))
   }
-  listOf(
-    iosX64(),
-    iosArm64(),
-    iosSimulatorArm64(),
-  ).forEach {
-    it.binaries.all {
-      if (this is org.jetbrains.kotlin.gradle.plugin.mpp.Framework) {
-        isStatic = true
-        embedBitcode(if ("YES" == System.getenv("ENABLE_BITCODE")) BitcodeEmbeddingMode.BITCODE else BitcodeEmbeddingMode.DISABLE)
-      }
-    }
-  }
+  iosX64()
+  iosArm64()
+  iosSimulatorArm64()
 
   sourceSets {
     val commonMain by getting {
       dependencies {
+        api(libs.kotlin.test.common)
         api(libs.kotlinx.datetime)
-        api(libs.uuid)
-        api(libs.multiplatform.settings)
+        api(libs.multiplatform.settings.test)
       }
     }
 
     val commonTest by getting {
-      dependencies {
-        implementation(project(":testing-kmp"))
-      }
     }
 
     val androidMain by getting {
       dependencies {
-        api(project(":kotlin"))
+        api(libs.kotlin.test.junit)
       }
     }
 
@@ -58,7 +41,6 @@ kotlin {
       iosSimulatorArm64Main.dependsOn(this)
 
       dependencies {
-        api(libs.crashkios)
       }
     }
 
@@ -72,24 +54,20 @@ kotlin {
       iosSimulatorArm64Test.dependsOn(this)
     }
   }
-
-  cocoapods {
-    summary = "Shared"
-    homepage = "https://www.vanniktech.de/"
-    version = "1.0.0"
-  }
 }
 
 android {
-  namespace = "com.vanniktech.playground.kmp"
+  namespace = "com.vanniktech.testing.kmp"
   compileSdk = libs.versions.compileSdk.get().toInt()
 
   defaultConfig {
+    vectorDrawables.useSupportLibrary = true
     minSdk = libs.versions.minSdk.get().toInt()
+    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
 
   buildFeatures {
-    viewBinding = true
+    viewBinding = false
     buildConfig = false
   }
 
@@ -98,6 +76,8 @@ android {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
   }
+
+  resourcePrefix = "testing_kmp_"
 
   packaging {
     resources.excludes.add("META-INF/*.kotlin_module")

@@ -30,6 +30,7 @@ ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "kto
 lottie = { module = "com.airbnb.android:lottie", version = "6.1.0" }
 material = { module = "com.google.android.material:material", version = "1.9.0" }
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformsettings" }
+multiplatform-settings-serialization = { module = "com.russhwolf:multiplatform-settings-serialization", version.ref = "multiplatformsettings" }
 multiplatform-settings-test = { module = "com.russhwolf:multiplatform-settings-test", version.ref = "multiplatformsettings" }
 okio = { module = "com.squareup.okio:okio", version = "3.4.0" }
 picnic = { module = "com.jakewharton.picnic:picnic", version = "0.6.0" }

@@ -31,8 +31,10 @@ kotlin {
     val commonMain by getting {
       dependencies {
         api(libs.kotlinx.datetime)
-        api(libs.uuid)
+        api(libs.kotlinx.serialization.json)
         api(libs.multiplatform.settings)
+        api(libs.multiplatform.settings.serialization)
+        api(libs.uuid)
       }
     }
 
@@ -47,6 +49,12 @@ kotlin {
 
     val androidMain by getting {
       dependencies {
+      }
+    }
+
+    val androidUnitTest by getting {
+      dependencies {
+        implementation(libs.kotlin.test.junit)
       }
     }
 

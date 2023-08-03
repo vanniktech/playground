@@ -9,7 +9,7 @@ plugins {
 }
 
 kotlin {
-  android()
+  androidTarget()
   jvm()
   jvmToolchain {
     languageVersion.set(JavaLanguageVersion.of("11"))

@@ -58,6 +58,12 @@ kotlin {
       }
     }
 
+    val jvmTest by getting {
+      dependencies {
+        implementation(libs.kotlin.test.junit)
+      }
+    }
+
     val iosX64Main by getting
     val iosArm64Main by getting
     val iosSimulatorArm64Main by getting

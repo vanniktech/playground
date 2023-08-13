@@ -34,20 +34,20 @@ class SomeTest {
     |    word. Thank you.</p>
       """.trimMargin()
 
-    val regex = Regex("<p>.*,[(\\[]?\\d{0,2}:?\\d{1,2}:\\d{2}[)\\]]?")
+    val regex = Regex("<p>.*,\\d")
 
     assertEquals(
       expected = listOf(
-        "<p>Introduction,0:00",
-        "<p>The Blind man and the dell. And my new Lenovo ThinkPad X1 Carbon,2:46",
-        "<p>Scribe for Personal Documents feedback,27:03",
-        "<p>More thoughts on meeting presenters describing themselves,29:16",
-        "<p>Our Chromebook demo continues with a look at Braille support,59:56",
-        "<p>Some thoughts onChromebooks,1:28:12",
-        "<p>The Bonnie Bulletin,1:46:16",
-        "<p>Should Apple police third-party accessibility?,1:54:35",
-        "<p>Android thoughts,1:57:19",
-        "<p>Closing and contact info,1:59:30",
+        "<p>Introduction,0",
+        "<p>The Blind man and the dell. And my new Lenovo ThinkPad X1 Carbon,2",
+        "<p>Scribe for Personal Documents feedback,2",
+        "<p>More thoughts on meeting presenters describing themselves,2",
+        "<p>Our Chromebook demo continues with a look at Braille support,5",
+        "<p>Some thoughts onChromebooks,1",
+        "<p>The Bonnie Bulletin,1",
+        "<p>Should Apple police third-party accessibility?,1",
+        "<p>Android thoughts,1",
+        "<p>Closing and contact info,1",
       ),
       actual = regex.findAll(string).map { match ->
         match.value

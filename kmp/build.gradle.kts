@@ -35,6 +35,7 @@ kotlin {
         api(libs.multiplatform.settings)
         api(libs.multiplatform.settings.serialization)
         api(libs.uuid)
+        api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
       }
     }
 

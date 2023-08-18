@@ -94,6 +94,9 @@ kotlin {
       isStatic = true
     }
 
+    ios.deploymentTarget = "16.0"
+    pod("HTMLString", "6.0.1")
+
     summary = "Shared"
     homepage = "https://www.vanniktech.de/"
     version = "1.0.0"

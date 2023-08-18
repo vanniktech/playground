@@ -8,8 +8,8 @@ Pod::Spec.new do |spec|
     spec.summary                  = 'Shared'
     spec.vendored_frameworks      = 'build/cocoapods/framework/kmp.framework'
     spec.libraries                = 'c++'
-                
-                
+    spec.ios.deployment_target = '16.0'
+    spec.dependency 'HTMLString', '6.0.1'
                 
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':kmp',

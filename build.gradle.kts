@@ -9,6 +9,8 @@ buildscript {
     classpath(libs.plugin.androidgradleplugin)
     classpath(libs.plugin.kotlin)
     classpath(libs.plugin.kotlin.serialization)
+    classpath(libs.plugin.ksp)
+    classpath(libs.plugin.native.coroutines)
   }
 }
 

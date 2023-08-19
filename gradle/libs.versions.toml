@@ -38,6 +38,8 @@ plugin-android-cache-fix = { module = "org.gradle.android.cache-fix:org.gradle.a
 plugin-androidgradleplugin = { module = "com.android.tools.build:gradle", version = "8.0.2" }
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 plugin-kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
+plugin-ksp = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin:1.9.0-1.0.13"
+plugin-native-coroutines = "com.rickclephas.kmp:kmp-nativecoroutines-gradle-plugin:1.0.0-ALPHA-17"
 rxandroid = { module = "io.reactivex.rxjava2:rxandroid", version = "2.1.1" }
 rxjava = { module = "io.reactivex.rxjava2:rxjava", version = "2.2.21" }
 timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }

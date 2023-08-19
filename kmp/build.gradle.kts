@@ -6,6 +6,8 @@ plugins {
   id("org.jetbrains.kotlin.native.cocoapods")
   id("org.jetbrains.kotlin.plugin.parcelize")
   id("org.jetbrains.kotlin.plugin.serialization")
+  id("com.google.devtools.ksp")
+  id("com.rickclephas.kmp.nativecoroutines")
 }
 
 kotlin {

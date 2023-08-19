@@ -11,9 +11,7 @@ plugins {
 kotlin {
   androidTarget()
   jvm()
-  jvmToolchain {
-    languageVersion.set(JavaLanguageVersion.of("11"))
-  }
+  jvmToolchain(11)
   listOf(
     iosX64(),
     iosArm64(),
@@ -30,10 +28,15 @@ kotlin {
   sourceSets {
     val commonMain by getting {
       dependencies {
+        api(libs.kotlinx.coroutines)
         api(libs.kotlinx.datetime)
         api(libs.kotlinx.serialization.json)
+        api(libs.ktor.client.core)
+        api(libs.ktor.client.logging)
         api(libs.multiplatform.settings)
         api(libs.multiplatform.settings.serialization)
+        api(libs.okio)
+        api(libs.picnic)
         api(libs.uuid)
       }
     }
@@ -49,12 +52,19 @@ kotlin {
 
     val androidMain by getting {
       dependencies {
+        api(libs.ktor.client.okhttp)
       }
     }
 
     val androidUnitTest by getting {
       dependencies {
         implementation(libs.kotlin.test.junit)
+      }
+    }
+
+    val jvmMain by getting {
+      dependencies {
+        api(libs.ktor.client.okhttp)
       }
     }
 
@@ -75,6 +85,7 @@ kotlin {
 
       dependencies {
         api(libs.crashkios)
+        api(libs.ktor.client.darwin)
       }
     }
 

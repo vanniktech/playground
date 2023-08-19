@@ -4,6 +4,7 @@ compileSdk = "33"
 targetSdk = "33"
 
 kotlin = "1.9.0"
+kotlinxcoroutines = "1.7.3"
 kotlinxserialization = "1.5.1"
 ktor = "2.3.3"
 multiplatformsettings = "1.0.0"
@@ -23,9 +24,12 @@ kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref =
 kotlin-test-annotations-common = { module = "org.jetbrains.kotlin:kotlin-test-annotations-common", version.ref = "kotlin" }
 kotlin-test-common = { module = "org.jetbrains.kotlin:kotlin-test-common", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxcoroutines" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.4.0" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxserialization" }
-ktor-client-core-jvm = { module = "io.ktor:ktor-client-core-jvm", version.ref = "ktor" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 lottie = { module = "com.airbnb.android:lottie", version = "6.1.0" }
 material = { module = "com.google.android.material:material", version = "1.9.0" }
@@ -35,7 +39,7 @@ multiplatform-settings-test = { module = "com.russhwolf:multiplatform-settings-t
 okio = { module = "com.squareup.okio:okio", version = "3.5.0" }
 picnic = { module = "com.jakewharton.picnic:picnic", version = "0.6.0" }
 plugin-android-cache-fix = { module = "org.gradle.android.cache-fix:org.gradle.android.cache-fix.gradle.plugin", version = "2.7.3" }
-plugin-androidgradleplugin = { module = "com.android.tools.build:gradle", version = "8.1.0" }
+plugin-androidgradleplugin = { module = "com.android.tools.build:gradle", version = "8.0.2" }
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 plugin-kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
 rxandroid = { module = "io.reactivex.rxjava2:rxandroid", version = "2.1.1" }

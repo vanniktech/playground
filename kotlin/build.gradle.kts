@@ -5,9 +5,7 @@ plugins {
 }
 
 kotlin {
-  jvmToolchain {
-    languageVersion.set(JavaLanguageVersion.of("11"))
-  }
+  jvmToolchain(11)
 }
 
 application {
@@ -16,11 +14,6 @@ application {
 
 dependencies {
   implementation(project(":kmp"))
-  implementation(libs.kotlinx.serialization.json)
-  implementation(libs.ktor.client.core.jvm)
-  implementation(libs.ktor.client.okhttp)
-  implementation(libs.picnic)
-  implementation(libs.okio)
 }
 
 dependencies {

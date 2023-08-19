@@ -9,7 +9,7 @@ plugins {
 }
 
 kotlin {
-  android()
+  androidTarget()
   jvm()
   jvmToolchain {
     languageVersion.set(JavaLanguageVersion.of("11"))
@@ -53,6 +53,12 @@ kotlin {
     }
 
     val androidUnitTest by getting {
+      dependencies {
+        implementation(libs.kotlin.test.junit)
+      }
+    }
+
+    val jvmTest by getting {
       dependencies {
         implementation(libs.kotlin.test.junit)
       }

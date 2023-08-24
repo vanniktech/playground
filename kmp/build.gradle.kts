@@ -6,6 +6,17 @@ plugins {
   id("org.jetbrains.kotlin.native.cocoapods")
   id("org.jetbrains.kotlin.plugin.parcelize")
   id("org.jetbrains.kotlin.plugin.serialization")
+  id("app.cash.sqldelight")
+}
+
+sqldelight {
+  databases {
+    create("QueryWrapper") {
+      packageName.set("com.vanniktech.playground.kmp")
+      schemaOutputDirectory.set(file("src/commonMain/sqldelight/databases"))
+      verifyMigrations.set(true)
+    }
+  }
 }
 
 kotlin {
@@ -38,6 +49,7 @@ kotlin {
         api(libs.okio)
         api(libs.picnic)
         api(libs.uuid)
+        api(libs.sqldelight.primitive.adapters)
       }
     }
 
@@ -53,6 +65,7 @@ kotlin {
     val androidMain by getting {
       dependencies {
         api(libs.ktor.client.okhttp)
+        api(libs.sqldelight.android.driver)
       }
     }
 
@@ -65,6 +78,7 @@ kotlin {
     val jvmMain by getting {
       dependencies {
         api(libs.ktor.client.okhttp)
+        api(libs.sqldelight.sqlite.driver)
       }
     }
 
@@ -86,6 +100,7 @@ kotlin {
       dependencies {
         api(libs.crashkios)
         api(libs.ktor.client.darwin)
+        api(libs.sqldelight.native.driver)
       }
     }
 

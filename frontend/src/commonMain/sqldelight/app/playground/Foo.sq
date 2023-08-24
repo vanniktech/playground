@@ -1,15 +1,7 @@
-import kotlinx.datetime.Instant;
-import app.playground.types.UserId;
-
-CREATE TABLE foo (
-  id TEXT NOT NULL PRIMARY KEY
+CREATE TABLE foo(
+  id TEXT NOT NULL PRIMARY KEY,
+  bar TEXT,
+  zoo INTEGER
 );
 
-upsert:
-INSERT OR REPLACE INTO foo
-VALUES ?
-;
-
-deleteAll:
-DELETE FROM foo
-;
+CREATE INDEX foo_id_bar ON foo(id, bar);

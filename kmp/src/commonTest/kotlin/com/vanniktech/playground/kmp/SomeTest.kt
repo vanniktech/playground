@@ -22,11 +22,11 @@ class SomeTest {
         HttpClient({
           install(HttpTimeout)
         }).prepareGet(
-          "https://api-dev.becoach.app/coach/api/video/2faf9bc2-c89f-4b37-99b8-25c43cb73737/james-template/bc6b5407-bda1-4967-aeda-d661f397d7c8"
+          "https://api-dev.becoach.app/coach/api/video/c6e7ab46-a98b-4725-9d75-6f3cd54499dd/james-template/ee3b24de-ffc8-4a89-9df1-d8e99c2fb023"
         ) {
           headers {
             set("User-Agent", "app.becoach.android.coach.dev:0.85.0")
-            set("Authorization", "Token 93e14a87-6e45-4238-99e5-4c8b5e3028c3")
+            set("Authorization", "Token 7199819a-8a5b-49bf-b0a4-c714c0d8cd77")
           }
 
           onDownload { bytesSentTotal, contentLength ->

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+  <!-- Our pace. -->
+  <issue id="GradleDependency" severity="ignore" in="cli,gradle"/>
+  <issue id="NewerVersionAvailable" severity="ignore" in="cli,gradle"/>
+  <issue id="AndroidGradlePluginVersion" severity="ignore" in="cli,gradle"/>
+</lint>

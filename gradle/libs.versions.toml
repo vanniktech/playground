@@ -3,11 +3,11 @@ minSdk = "21"
 compileSdk = "33"
 targetSdk = "33"
 
-kotlin = "1.9.10"
+kotlin = "1.9.20"
 kotlinxcoroutines = "1.7.3"
 kotlinxserialization = "1.6.0"
 ktor = "2.3.5"
-multiplatformsettings = "1.0.0"
+multiplatformsettings = "1.1.0"
 sqldelight = "2.0.0"
 
 [libraries]
@@ -20,7 +20,7 @@ androidx-test-junit = { module = "androidx.test.ext:junit", version = "1.1.5" }
 androidx-test-rules = { module = "androidx.test:rules", version = "1.5.0" }
 androidx-test-runner = { module = "androidx.test:runner", version = "1.5.2" }
 crashkios = { module = "co.touchlab:crashkios", version = "0.6.0" }
-desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version = "2.0.3" }
+desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version = "2.0.4" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 kotlin-test-annotations-common = { module = "org.jetbrains.kotlin:kotlin-test-annotations-common", version.ref = "kotlin" }
 kotlin-test-common = { module = "org.jetbrains.kotlin:kotlin-test-common", version.ref = "kotlin" }
@@ -39,7 +39,7 @@ multiplatform-settings-serialization = { module = "com.russhwolf:multiplatform-s
 multiplatform-settings-test = { module = "com.russhwolf:multiplatform-settings-test", version.ref = "multiplatformsettings" }
 okio = { module = "com.squareup.okio:okio", version = "3.6.0" }
 picnic = { module = "com.jakewharton.picnic:picnic", version = "0.7.0" }
-plugin-android-cache-fix = { module = "org.gradle.android.cache-fix:org.gradle.android.cache-fix.gradle.plugin", version = "2.8.1" }
+plugin-android-cache-fix = { module = "org.gradle.android.cache-fix:org.gradle.android.cache-fix.gradle.plugin", version = "3.0" }
 plugin-androidgradleplugin = { module = "com.android.tools.build:gradle", version = "8.1.1" }
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 plugin-kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
@@ -51,4 +51,4 @@ sqldelight-native-driver = { module = "app.cash.sqldelight:native-driver", versi
 sqldelight-primitive-adapters = { module = "app.cash.sqldelight:primitive-adapters", version.ref = "sqldelight" }
 sqldelight-sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
 timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }
-uuid = { module = "com.benasher44:uuid", version = "0.8.1" }
+uuid = { module = "com.benasher44:uuid", version = "0.8.2" }

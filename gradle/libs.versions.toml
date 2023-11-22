@@ -7,7 +7,7 @@ kotlin = "1.9.20"
 kotlinxcoroutines = "1.7.3"
 kotlinxserialization = "1.6.1"
 ktor = "2.3.6"
-multiplatformsettings = "1.1.0"
+multiplatformsettings = "1.1.1"
 sqldelight = "2.0.0"
 
 [libraries]

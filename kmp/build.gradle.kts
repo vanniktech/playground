@@ -15,6 +15,7 @@ sqldelight {
       packageName.set("com.vanniktech.playground.kmp")
       schemaOutputDirectory.set(file("src/commonMain/sqldelight/databases"))
       verifyMigrations.set(true)
+      generateAsync.set(true)
     }
   }
 }
@@ -43,6 +44,7 @@ kotlin {
         api(libs.picnic)
         api(libs.uuid)
         api(libs.sqldelight.primitive.adapters)
+        api(libs.sqldelight.async.extensions)
       }
     }
 

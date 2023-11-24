@@ -47,6 +47,7 @@ plugin-sqldelight = { module = "app.cash.sqldelight:gradle-plugin", version.ref 
 rxandroid = { module = "io.reactivex.rxjava2:rxandroid", version = "2.1.1" }
 rxjava = { module = "io.reactivex.rxjava2:rxjava", version = "2.2.21" }
 sqldelight-android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
+sqldelight-async-extensions = { module = "app.cash.sqldelight:async-extensions", version.ref = "sqldelight" }
 sqldelight-native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
 sqldelight-primitive-adapters = { module = "app.cash.sqldelight:primitive-adapters", version.ref = "sqldelight" }
 sqldelight-sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }

@@ -8,7 +8,7 @@ kotlinxcoroutines = "1.7.3"
 kotlinxserialization = "1.6.2"
 ktor = "2.3.6"
 multiplatformsettings = "1.1.1"
-sqldelight = "2.0.0"
+sqldelight = "2.0.1"
 
 [libraries]
 adapterdelegates4-kotlin-dsl = { module = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl", version = "4.3.2" }

@@ -11,6 +11,17 @@ Pod::Spec.new do |spec|
                 
                 
                 
+    if !Dir.exist?('build/cocoapods/framework/kmp.framework') || Dir.empty?('build/cocoapods/framework/kmp.framework')
+        raise "
+
+        Kotlin framework 'kmp' doesn't exist yet, so a proper Xcode project can't be generated.
+        'pod install' should be executed after running ':generateDummyFramework' Gradle task:
+
+            ./gradlew :kmp:generateDummyFramework
+
+        Alternatively, proper pod installation is performed during Gradle sync in the IDE (if Podfile location is set)"
+    end
+                
     spec.pod_target_xcconfig = {
         'KOTLIN_PROJECT_PATH' => ':kmp',
         'PRODUCT_MODULE_NAME' => 'kmp',

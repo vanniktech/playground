@@ -37,7 +37,7 @@ material = { module = "com.google.android.material:material", version = "1.11.0"
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformsettings" }
 multiplatform-settings-serialization = { module = "com.russhwolf:multiplatform-settings-serialization", version.ref = "multiplatformsettings" }
 multiplatform-settings-test = { module = "com.russhwolf:multiplatform-settings-test", version.ref = "multiplatformsettings" }
-okio = { module = "com.squareup.okio:okio", version = "3.8.0" }
+okio = { module = "com.squareup.okio:okio", version = "3.9.0" }
 picnic = { module = "com.jakewharton.picnic:picnic", version = "0.7.0" }
 plugin-android-cache-fix = { module = "org.gradle.android.cache-fix:org.gradle.android.cache-fix.gradle.plugin", version = "3.0.1" }
 plugin-androidgradleplugin = { module = "com.android.tools.build:gradle", version = "8.3.0" }

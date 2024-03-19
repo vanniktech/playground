@@ -51,4 +51,4 @@ sqldelight-native-driver = { module = "app.cash.sqldelight:native-driver", versi
 sqldelight-primitive-adapters = { module = "app.cash.sqldelight:primitive-adapters", version.ref = "sqldelight" }
 sqldelight-sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
 timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }
-uuid = { module = "com.benasher44:uuid", version = "0.8.3" }
+uuid = { module = "com.benasher44:uuid", version = "0.8.4" }

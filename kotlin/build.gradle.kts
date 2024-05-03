@@ -13,6 +13,7 @@ application {
 }
 
 dependencies {
+  implementation(libs.kotlin.csv)
   implementation(project(":kmp"))
 }
 

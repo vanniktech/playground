@@ -3,7 +3,7 @@ minSdk = "21"
 compileSdk = "34"
 targetSdk = "34"
 
-kotlin = "1.9.23"
+kotlin = "1.9.24"
 kotlinxcoroutines = "1.8.0"
 kotlinxserialization = "1.6.3"
 ktor = "2.3.10"

@@ -4,7 +4,7 @@ compileSdk = "34"
 targetSdk = "34"
 
 kotlin = "1.9.24"
-kotlinxcoroutines = "1.8.0"
+kotlinxcoroutines = "1.8.1"
 kotlinxserialization = "1.6.3"
 ktor = "2.3.11"
 multiplatformsettings = "1.1.1"

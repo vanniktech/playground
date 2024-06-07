@@ -5,7 +5,7 @@ targetSdk = "34"
 
 kotlin = "2.0.0"
 kotlinxcoroutines = "1.8.1"
-kotlinxserialization = "1.6.3"
+kotlinxserialization = "1.7.0"
 ktor = "2.3.11"
 multiplatformsettings = "1.1.1"
 sqldelight = "2.0.2"

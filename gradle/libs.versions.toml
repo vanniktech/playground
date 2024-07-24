@@ -12,7 +12,7 @@ sqldelight = "2.0.2"
 
 [libraries]
 adapterdelegates4-kotlin-dsl = { module = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl", version = "4.3.2" }
-androidx-annotation = { module = "androidx.annotation:annotation", version = "1.8.0" }
+androidx-annotation = { module = "androidx.annotation:annotation", version = "1.8.1" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.7.0" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version = "2.1.4" }
 androidx-espresso-contrib = { module = "androidx.test.espresso:espresso-contrib", version = "3.6.1" }

@@ -1,5 +1,7 @@
 package com.vanniktech.playground.kotlin
 
-fun main() {
-  print("Hello World")
+import com.vanniktech.playground.kmp.Ksouper
+
+suspend fun main() {
+  Ksouper.foo()
 }

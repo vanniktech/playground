@@ -9,6 +9,7 @@ kotlinxserialization = "1.7.3"
 ktor = "3.0.0"
 multiplatformsettings = "1.2.0"
 sqldelight = "2.0.2"
+ksoup = "0.1.9"
 
 [libraries]
 adapterdelegates4-kotlin-dsl = { module = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl", version = "4.3.2" }
@@ -29,6 +30,8 @@ kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core",
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.6.1" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxserialization" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ksoup-core = { module = "com.fleeksoft.ksoup:ksoup", version.ref = "ksoup" }
+ksoup-ktor = { module = "com.fleeksoft.ksoup:ksoup-network", version.ref = "ksoup" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }

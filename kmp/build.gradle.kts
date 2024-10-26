@@ -35,14 +35,16 @@ kotlin {
         api(libs.kotlinx.coroutines)
         api(libs.kotlinx.datetime)
         api(libs.kotlinx.serialization.json)
+        api(libs.ksoup.core)
+        api(libs.ksoup.ktor)
         api(libs.ktor.client.core)
         api(libs.ktor.client.logging)
         api(libs.multiplatform.settings)
         api(libs.multiplatform.settings.serialization)
         api(libs.okio)
         api(libs.picnic)
-        api(libs.uuid)
         api(libs.sqldelight.primitive.adapters)
+        api(libs.uuid)
       }
     }
 

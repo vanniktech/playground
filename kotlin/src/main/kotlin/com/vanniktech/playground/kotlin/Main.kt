@@ -52,7 +52,7 @@ fun main() {
 
       routing {
         authenticate(AUTH_BEARER) {
-          delete(Routes.Account.DELETE.path) {
+          route(Routes.Account.DELETE) {
             val principal = call.principal<String>() ?: throw IllegalStateException("no principal")
             call.respond(HttpStatusCode.OK, principal)
           }

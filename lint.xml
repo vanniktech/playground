@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lint>
+  <issue id="SyntheticAccessor" severity="error"/>
+  <issue id="InvalidPackage" severity="ignore"/>
+  <issue id="MonochromeLauncherIcon" severity="ignore"/>
+  <issue id="ConvertToWebp" severity="ignore"/>
+
   <!-- Our pace. -->
   <issue id="GradleDependency" severity="ignore" in="cli,gradle"/>
   <issue id="NewerVersionAvailable" severity="ignore" in="cli,gradle"/>

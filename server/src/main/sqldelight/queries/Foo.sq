@@ -1,0 +1,8 @@
+upsert:
+INSERT INTO foo
+VALUES ?
+;
+
+deleteAll:
+DELETE FROM foo
+;

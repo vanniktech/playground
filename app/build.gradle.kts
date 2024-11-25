@@ -18,9 +18,13 @@ android {
     versionCode = 1
     versionName = "1.0.0"
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+    // Either uncomment the next line to fix the compilation error.
+    // buildConfigField("String", "WORKAROUND", "\"foo\"")
   }
 
   buildFeatures {
+    buildConfig = true
     viewBinding = true
   }
 

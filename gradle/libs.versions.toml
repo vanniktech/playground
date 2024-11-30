@@ -16,7 +16,7 @@ kotlinx-coroutines = "1.9.0"
 kotlinxserialization = "1.7.3"
 ktlint = "1.3.1"
 ktor = "3.0.1"
-multiplatformsettings = "1.2.0"
+multiplatformsettings = "1.3.0"
 okio = "3.9.1"
 sqldelight = "2.0.2"
 

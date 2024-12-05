@@ -51,14 +51,15 @@ import androidx.navigation.NavHostController
   val endInteractionSource = remember { MutableInteractionSource() }
 
   Column(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)) {
+    val colors = SliderDefaults.colors(
+      activeTrackColor = Color.Yellow, // This does not change the color.
+    )
     RangeSlider(
       state = rangeSliderState,
       modifier = Modifier.semantics { contentDescription = "Foo" },
       startInteractionSource = startInteractionSource,
       endInteractionSource = endInteractionSource,
-      colors = SliderDefaults.colors(
-        activeTrackColor = Color.Yellow, // This does not change the color.
-      ),
+      colors = colors,
       startThumb = {
         Label(
           label = {
@@ -73,6 +74,7 @@ import androidx.navigation.NavHostController
           interactionSource = startInteractionSource,
         ) {
           SliderDefaults.Thumb(
+            colors = colors,
             interactionSource = startInteractionSource,
           )
         }
@@ -91,6 +93,7 @@ import androidx.navigation.NavHostController
           interactionSource = endInteractionSource,
         ) {
           SliderDefaults.Thumb(
+            colors = colors,
             interactionSource = endInteractionSource,
           )
         }

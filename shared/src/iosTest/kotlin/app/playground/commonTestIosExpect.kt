@@ -8,5 +8,4 @@ import platform.posix.getenv
 actual fun fileSystem() = FileSystem.SYSTEM
 
 @OptIn(ExperimentalForeignApi::class)
-actual fun getEnv(name: String): String? =
-  getenv(name)?.toKString()
+actual fun getEnv(name: String): String? = getenv(name)?.toKString()

@@ -105,6 +105,7 @@ kotlin {
       implementation(compose.desktop.currentOs)
       implementation(libs.kotlinx.coroutines.swing)
       implementation(libs.sqldelight.sqlite.driver)
+      implementation(libs.sqlite.jdbc)
     }
 
     val commonTest by getting
@@ -186,7 +187,6 @@ android {
 compose.desktop {
   application {
     mainClass = "app.playground.desktop.MainKt"
-    args(libs.versions.name.get())
 
     nativeDistributions {
       targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)

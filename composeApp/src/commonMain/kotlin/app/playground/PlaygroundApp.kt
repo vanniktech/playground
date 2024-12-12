@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -50,6 +51,16 @@ import androidx.navigation.compose.rememberNavController
         MainScreen(
           navHostController = navHostController,
         )
+      }
+
+      navigation<DeepLinkOnboarding>(
+        startDestination = DeepLinkOnboardingStep.entries.first().name
+      ) {
+        DeepLinkOnboardingStep.entries.map { deepLinkOnboardingStep ->
+          composable(route = deepLinkOnboardingStep.name) {
+            Text(deepLinkOnboardingStep.name)
+          }
+        }
       }
     }
   }

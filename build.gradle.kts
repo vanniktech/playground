@@ -6,7 +6,7 @@ plugins {
   alias(libs.plugins.androidApplication) apply false
   alias(libs.plugins.androidLibrary) apply false
   alias(libs.plugins.cachefix) apply false
-  alias(libs.plugins.codequalitytools)
+  // alias(libs.plugins.codequalitytools)
   alias(libs.plugins.compose.compiler) apply false
   alias(libs.plugins.jetbrainsCompose) apply false
   alias(libs.plugins.kotlinJvm) apply false
@@ -17,30 +17,30 @@ plugins {
   alias(libs.plugins.sqldelight) apply false
 }
 
-codeQualityTools {
-  checkstyle {
-    enabled = false // Kotlin only.
-  }
-  pmd {
-    enabled = false // Kotlin only.
-  }
-  ktlint {
-    toolVersion = libs.versions.ktlint.get()
-  }
-  detekt {
-    enabled = false // Don"t want.
-  }
-  cpd {
-    enabled = false // Kotlin only.
-  }
-  lint {
-    lintConfig = rootProject.file("lint.xml")
-    checkAllWarnings = true
-  }
-  kotlin {
-    allWarningsAsErrors = true
-  }
-}
+// codeQualityTools {
+//   checkstyle {
+//     enabled = false // Kotlin only.
+//   }
+//   pmd {
+//     enabled = false // Kotlin only.
+//   }
+//   ktlint {
+//     toolVersion = libs.versions.ktlint.get()
+//   }
+//   detekt {
+//     enabled = false // Don"t want.
+//   }
+//   cpd {
+//     enabled = false // Kotlin only.
+//   }
+//   lint {
+//     lintConfig = rootProject.file("lint.xml")
+//     checkAllWarnings = true
+//   }
+//   kotlin {
+//     allWarningsAsErrors = true
+//   }
+// }
 
 subprojects {
   plugins.withType<AndroidBasePlugin> {

@@ -195,3 +195,7 @@ compose.desktop {
     }
   }
 }
+
+dependencies {
+  lintChecks("com.slack.lint.compose:compose-lint-checks:1.4.2")
+}

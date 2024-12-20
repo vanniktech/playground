@@ -80,7 +80,7 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 cachefix = { id = "org.gradle.android.cache-fix", version = "3.0.1" }
 codequalitytools = { id = "com.vanniktech.code.quality.tools", version = "0.24.0" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-jetbrainsCompose = { id = "org.jetbrains.compose", version = "1.7.1" }
+jetbrainsCompose = { id = "org.jetbrains.compose", version = "1.7.3" }
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinParcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }

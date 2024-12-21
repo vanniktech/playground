@@ -73,6 +73,7 @@ sqldelight-sqlite-driver = { module = "app.cash.sqldelight:sqlite-driver", versi
 sqlite-jdbc = "org.xerial:sqlite-jdbc:3.47.1.0"
 timber = "com.jakewharton.timber:timber:5.0.1"
 uuid = "com.benasher44:uuid:0.8.4"
+telephoto = "me.saket.telephoto:zoomable:0.15.0-SNAPSHOT"
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -1,7 +1,9 @@
 package app.playground
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -44,7 +46,9 @@ import androidx.navigation.compose.rememberNavController
       startDestination = startDestination,
       modifier = Modifier
         .fillMaxSize()
-        .padding(innerPadding),
+        .padding(innerPadding)
+        .consumeWindowInsets(innerPadding )
+        .imePadding(),
     ) {
       composable<DeepLinkMain> {
         MainScreen(

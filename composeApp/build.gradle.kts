@@ -69,6 +69,7 @@ kotlin {
       implementation(compose.material3)
       implementation(compose.runtime)
       implementation(compose.ui)
+      implementation(libs.telephoto)
       implementation(libs.androidx.lifecycle.runtime.compose)
       implementation(libs.androidx.lifecycle.viewmodel)
       implementation(libs.androidx.navigation.compose)

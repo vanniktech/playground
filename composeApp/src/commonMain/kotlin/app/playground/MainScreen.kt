@@ -20,17 +20,19 @@ import playground.composeapp.generated.resources.nashorn
   navHostController: NavHostController,
 ) = LazyColumn {
   item("image-1") {
-    Image(painterResource(Res.drawable.nashorn), contentDescription = null, modifier = Modifier.magicZoom())
+    Image(painterResource(Res.drawable.nashorn), contentDescription = null, modifier = Modifier.magicZoom2())
   }
 
   item("image-2") {
-    Image(painterResource(Res.drawable.kangaroo), contentDescription = null, modifier = Modifier.magicZoom())
+    Image(painterResource(Res.drawable.kangaroo), contentDescription = null, modifier = Modifier.magicZoom2())
   }
 
   item("image-3") {
-    Image(painterResource(Res.drawable.nashorn), contentDescription = null, modifier = Modifier.magicZoom())
+    Image(painterResource(Res.drawable.nashorn), contentDescription = null, modifier = Modifier.magicZoom2())
   }
 }
+
+@Composable expect fun Modifier.magicZoom2(): Modifier
 
 @Composable fun Modifier.magicZoom(): Modifier {
   val state = rememberZoomableState(
@@ -40,7 +42,7 @@ import playground.composeapp.generated.resources.nashorn
     ),
   )
   val isZoomedIn = (state.zoomFraction ?: 0f) > 0f
-  return zIndex(if (isZoomedIn) Float.MAX_VALUE else 1f).zoomablePeekOverlay(
+  return zIndex(if (isZoomedIn) Float.MAX_VALUE else 1f).zoomable(
     state,
     clipToBounds = false,
   )

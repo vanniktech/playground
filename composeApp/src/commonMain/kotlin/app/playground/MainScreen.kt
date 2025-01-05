@@ -40,7 +40,7 @@ import playground.composeapp.generated.resources.nashorn
     ),
   )
   val isZoomedIn = (state.zoomFraction ?: 0f) > 0f
-  return zIndex(if (isZoomedIn) Float.MAX_VALUE else 1f).zoomable(
+  return zIndex(if (isZoomedIn) Float.MAX_VALUE else 1f).zoomablePeekOverlay(
     state,
     clipToBounds = false,
   )

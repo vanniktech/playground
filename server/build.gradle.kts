@@ -35,6 +35,8 @@ application {
 
 dependencies {
   implementation(libs.blurhash)
+  implementation(libs.commons.logging)
+  implementation(libs.csv)
   implementation(libs.flyway)
   implementation(libs.hikari)
   implementation(libs.ktor.server.auth)
@@ -46,7 +48,6 @@ dependencies {
   implementation(libs.ktor.server.status.pages)
   implementation(libs.ktor.server.websockets)
   implementation(libs.logback)
-  implementation(libs.commons.logging)
   implementation(libs.postgresql)
   implementation(libs.spring.security.crypto)
   implementation(libs.sqldelight.coroutines)

@@ -26,6 +26,7 @@ blurhash = { module = "com.vanniktech:blurhash", version = "0.3.0" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-network = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coil" }
 commons-logging = "commons-logging:commons-logging:1.3.4"
+csv = "com.jsoizo:kotlin-csv-jvm:1.10.0"
 flyway = "org.flywaydb:flyway-database-postgresql:11.2.0"
 hikari = "com.zaxxer:HikariCP:6.2.1"
 kotlin-test-annotations-common = { module = "org.jetbrains.kotlin:kotlin-test-annotations-common", version.ref = "kotlin" }
@@ -58,7 +59,7 @@ ktor-server-status-pages = { module = "io.ktor:ktor-server-status-pages-jvm", ve
 ktor-server-test-host = { module = "io.ktor:ktor-server-test-host-jvm", version.ref = "ktor" }
 ktor-server-websockets = { module = "io.ktor:ktor-server-websockets-jvm", version.ref = "ktor" }
 logback = "ch.qos.logback:logback-classic:1.5.16"
-multiplatform-locale = "com.vanniktech:multiplatform-locale:0.8.0"
+multiplatform-locale = "com.vanniktech:multiplatform-locale:0.9.0"
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformsettings" }
 multiplatform-settings-test = { module = "com.russhwolf:multiplatform-settings-test", version.ref = "multiplatformsettings" }
 okio = { module = "com.squareup.okio:okio", version.ref = "okio" }

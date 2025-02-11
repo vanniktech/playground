@@ -11,3 +11,8 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
     frontendDependencies = frontendDependencies,
   )
 }
+
+class MyDto(
+  val property1: Int,
+  @UnusedSince(AppVersion.V0_2_0) val property2: Int, // This is only marked in the IDE, but not during a Gradle build.
+)

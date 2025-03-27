@@ -1,15 +1,23 @@
 import kotlinx.datetime.Instant;
 import app.playground.types.UserId;
 
-CREATE TABLE foo (
-  id TEXT NOT NULL PRIMARY KEY
+CREATE TABLE itemDownload (
+  url TEXT NOT NULL,
+  channelId TEXT NOT NULL,
+  itemId TEXT NOT NULL,
+  localPath TEXT,
+  progress INTEGER NOT NULL,
+  mimeType TEXT,
+  positionMs INTEGER NOT NULL DEFAULT 0,
+  durationMs INTEGER,
+  length INTEGER,
+  started INTEGER,
+  ended INTEGER,
+  PRIMARY KEY (url, channelId, itemId)
 );
 
-upsert:
-INSERT OR REPLACE INTO foo
-VALUES ?
-;
-
-deleteAll:
-DELETE FROM foo
+updatePositionDurationMs:
+UPDATE itemDownload
+  SET positionMs = :positionMs, durationMs = :durationMs
+  WHERE url LIKE :urlLike ESCAPE :escape AND itemId = :itemId AND channelId = :channelId
 ;

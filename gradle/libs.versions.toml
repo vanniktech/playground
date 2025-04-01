@@ -38,7 +38,7 @@ kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
 kotlinx-datetime = "org.jetbrains.kotlinx:kotlinx-datetime:0.6.2"
-kotlinx-serialization-json = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0"
+kotlinx-serialization-json = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1"
 ksoup-okio = "com.fleeksoft.ksoup:ksoup-okio:0.2.2"
 ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
 ktor-client-callId = { module = "io.ktor:ktor-client-call-id", version.ref = "ktor" }

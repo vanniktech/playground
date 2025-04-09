@@ -30,6 +30,11 @@ class PlaygroundMainActivity : ComponentActivity() {
     )
     super.onCreate(savedInstanceState)
 
+    // works.
+    "test".forEach {
+
+    }
+
     val test = copy("audio.wav")
     // val test = copy("whatsapp.oga")
     // val test = copy("audio-very-short.wav")

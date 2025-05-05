@@ -11,4 +11,7 @@ import coil3.memory.MemoryCache
       .memoryCache(MemoryCache.Builder().maxSizeBytes(10_000_000).build())
       .build()
   }
+
+  // broken.
+  "Test".for
 }

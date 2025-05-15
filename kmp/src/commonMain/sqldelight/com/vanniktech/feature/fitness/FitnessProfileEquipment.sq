@@ -1,0 +1,7 @@
+CREATE TABLE fitnessProfileEquipment (
+  profileId TEXT NOT NULL,
+  equipmentId TEXT NOT NULL,
+  FOREIGN KEY (profileId) REFERENCES fitnessProfile(id),
+  FOREIGN KEY (equipmentId) REFERENCES fitnessEquipment(id),
+  PRIMARY KEY (profileId, equipmentId)
+);

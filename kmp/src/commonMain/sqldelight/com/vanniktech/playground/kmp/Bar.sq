@@ -1,0 +1,5 @@
+CREATE TABLE bar(
+  id TEXT NOT NULL PRIMARY KEY,
+  value TEXT
+);
+

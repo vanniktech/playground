@@ -1,0 +1,7 @@
+CREATE TABLE foo(
+  id TEXT NOT NULL PRIMARY KEY,
+  bar TEXT,
+  zoo INTEGER
+);
+
+CREATE INDEX foo_id_bar ON foo(id, bar);

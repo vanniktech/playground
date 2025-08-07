@@ -84,6 +84,7 @@ kotlin {
       implementation(libs.multiplatform.settings)
       implementation(libs.sqldelight.coroutines)
       implementation(libs.sqldelight.primitive.adapters)
+      implementation(libs.telephoto)
       implementation(projects.shared)
     }
 

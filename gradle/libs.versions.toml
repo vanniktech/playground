@@ -2,7 +2,7 @@
 code = "1"
 name = "1.0.0"
 
-agp = "8.12.1"
+agp = "8.12.2"
 android-compileSdk = "36"
 android-minSdk = "23"
 android-targetSdk = "36"

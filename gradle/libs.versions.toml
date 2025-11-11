@@ -81,7 +81,7 @@ uuid = "com.benasher44:uuid:0.8.4"
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
-cachefix = { id = "org.gradle.android.cache-fix", version = "3.0.2" }
+cachefix = { id = "org.gradle.android.cache-fix", version = "3.0.3" }
 codequalitytools = { id = "com.vanniktech.code.quality.tools", version = "0.24.0" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version = "1.9.0" }

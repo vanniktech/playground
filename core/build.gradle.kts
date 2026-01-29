@@ -1,9 +1,4 @@
-@file:OptIn(ExperimentalWasmDsl::class)
-
 import com.android.build.gradle.tasks.factory.AndroidUnitTest
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.testing.KotlinJsTest
 import org.jetbrains.kotlin.gradle.targets.jvm.tasks.KotlinJvmTest
 import org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeTest
@@ -29,7 +24,6 @@ kotlin {
   }
 
   js { browser() }
-  wasmJs { browser() }
   iosX64()
   iosArm64()
   iosSimulatorArm64()

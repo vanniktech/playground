@@ -15,4 +15,3 @@ ALTER DATABASE playground OWNER TO playground;
   - Run as jar: `./gradlew server:shadowJar && java -jar server/build/libs/server-all.jar`
 
 - Js: `./gradlew jsBrowserDevelopmentRun`
-- Wasm: `./gradlew wasmJsBrowserDevelopmentRun`

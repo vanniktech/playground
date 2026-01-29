@@ -11,5 +11,5 @@ import androidx.navigation.NavHostController
 @Composable internal fun MainScreen(
   navHostController: NavHostController,
 ) = Column(Modifier.padding(16.dp)) {
-  Text("Hello World this is crazy shit!")
+  Text("Hello World")
 }

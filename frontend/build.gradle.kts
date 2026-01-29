@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
 plugins {
   alias(libs.plugins.android.kotlin.muliplatform.library)
   alias(libs.plugins.compose.compiler)
@@ -103,4 +105,16 @@ kotlin {
       implementation(libs.kotlinx.coroutines.swing)
     }
   }
+
+  targets
+    .withType<KotlinNativeTarget>()
+    .matching { it.konanTarget.family.isAppleFamily }
+    .configureEach {
+      binaries {
+        framework {
+          baseName = "frontend"
+          isStatic = true
+        }
+      }
+    }
 }

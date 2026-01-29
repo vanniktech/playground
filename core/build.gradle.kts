@@ -23,7 +23,11 @@ kotlin {
     }
   }
 
-  js { browser() }
+  js {
+    browser()
+    binaries.executable()
+    useCommonJs()
+  }
   iosX64()
   iosArm64()
   iosSimulatorArm64()

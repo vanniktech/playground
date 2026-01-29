@@ -34,7 +34,11 @@ kotlin {
   jvm()
   jvmToolchain(17)
 
-  js { browser() }
+  js {
+    browser()
+    binaries.executable()
+    useCommonJs()
+  }
   iosX64()
   iosArm64()
   iosSimulatorArm64()
@@ -97,14 +101,6 @@ kotlin {
       api(libs.sqlite.jdbc)
       implementation(compose.desktop.currentOs)
       implementation(libs.kotlinx.coroutines.swing)
-    }
-
-    jsMain.dependencies {
-      api(libs.sqldelight.web.worker.driver)
-
-      implementation(npm("@cashapp/sqldelight-sqljs-worker", libs.versions.sqldelight.get()))
-      implementation(npm("sql.js", "1.10.3")) // use latest compatible version
-      implementation(devNpm("copy-webpack-plugin", "11.0.0"))
     }
   }
 }

@@ -3,16 +3,17 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-  alias(libs.plugins.androidApplication) apply false
-  alias(libs.plugins.androidLibrary) apply false
+  alias(libs.plugins.android.application) apply false
+  alias(libs.plugins.android.library) apply false
+  alias(libs.plugins.android.kotlin.muliplatform.library) apply false
   alias(libs.plugins.cachefix) apply false
   alias(libs.plugins.codequalitytools)
   alias(libs.plugins.compose.compiler) apply false
-  alias(libs.plugins.jetbrainsCompose) apply false
-  alias(libs.plugins.kotlinJvm) apply false
-  alias(libs.plugins.kotlinMultiplatform) apply false
-  alias(libs.plugins.kotlinParcelize) apply false
-  alias(libs.plugins.kotlinSerialization) apply false
+  alias(libs.plugins.compose.multiplatform) apply false
+  alias(libs.plugins.kotlin.jvm) apply false
+  alias(libs.plugins.kotlin.multiplatform) apply false
+  alias(libs.plugins.kotlin.parcelize) apply false
+  alias(libs.plugins.kotlin.serialization) apply false
   alias(libs.plugins.shadow) apply false
   alias(libs.plugins.sqldelight) apply false
 }
@@ -26,9 +27,6 @@ codeQualityTools {
   }
   ktlint {
     toolVersion = libs.versions.ktlint.get()
-  }
-  detekt {
-    enabled = false // Don"t want.
   }
   cpd {
     enabled = false // Kotlin only.

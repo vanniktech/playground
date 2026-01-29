@@ -2,8 +2,8 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-  alias(libs.plugins.kotlinJvm)
-  alias(libs.plugins.kotlinSerialization)
+  alias(libs.plugins.kotlin.jvm)
+  alias(libs.plugins.kotlin.serialization)
   alias(libs.plugins.ktor)
   alias(libs.plugins.shadow)
   alias(libs.plugins.sqldelight)
@@ -12,7 +12,7 @@ plugins {
 
 sqldelight {
   databases {
-    create("QueryWrapper") {
+    register("QueryWrapper") {
       deriveSchemaFromMigrations.set(true)
       dialect(libs.sqldelight.postgresql.dialect)
       migrationOutputDirectory = layout.buildDirectory.dir("resources/main/db/migration")
@@ -23,7 +23,7 @@ sqldelight {
 }
 
 group = "app.playground.server"
-version = libs.versions.name.get()
+version = "1.0.0"
 
 application {
   mainClass.set("app.playground.server.ApplicationKt")
@@ -54,11 +54,11 @@ dependencies {
   implementation(libs.sqldelight.jdbc.driver)
   implementation(libs.sqldelight.primitive.adapters)
   implementation(libs.sqldelight.runtime)
-  implementation(projects.shared)
+  implementation(projects.core)
 }
 
 dependencies {
-  testImplementation(libs.kotlin.test.junit)
+  testImplementation(kotlin("test"))
   testImplementation(libs.ktor.server.test.host)
 }
 

@@ -3,10 +3,16 @@ Playground
 
 - Android: `./gradlew installDebug`
 - iOS: XCode ...
-- Desktop: `./gradlew composeApp:run`
-- Server: `./gradlew server:run`
-- Server: `./gradlew server:shadowJar && java -jar server/build/libs/server-all.jar`
+- Desktop: `./gradlew hotRun --auto`
+- Server
+  - Postgres is required with:
+```sql
+CREATE USER playground WITH PASSWORD 'playground';
+CREATE DATABASE playground;
+ALTER DATABASE playground OWNER TO playground;
+```
+  - Run locally: `./gradlew server:run`
+  - Run as jar: `./gradlew server:shadowJar && java -jar server/build/libs/server-all.jar`
 
-**Unsupported:**
-
-- Web/Wasm: `./gradlew composeApp:wasmJsBrowserDevelopmentRun`
+- Js: `./gradlew jsBrowserDevelopmentRun`
+- Wasm: `./gradlew wasmJsBrowserDevelopmentRun`

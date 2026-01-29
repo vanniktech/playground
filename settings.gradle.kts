@@ -6,13 +6,13 @@ pluginManagement {
     google {
       mavenContent {
         includeGroupAndSubgroups("androidx")
+        includeGroupAndSubgroups("android")
         includeGroupAndSubgroups("com.android")
         includeGroupAndSubgroups("com.google")
       }
     }
     mavenCentral()
     gradlePluginPortal()
-    maven("https://oss.sonatype.org/content/repositories/snapshots")
   }
 }
 
@@ -21,15 +21,22 @@ dependencyResolutionManagement {
     google {
       mavenContent {
         includeGroupAndSubgroups("androidx")
+        includeGroupAndSubgroups("android")
         includeGroupAndSubgroups("com.android")
         includeGroupAndSubgroups("com.google")
       }
     }
     mavenCentral()
-    maven("https://oss.sonatype.org/content/repositories/snapshots")
   }
 }
 
-include(":composeApp")
+plugins {
+  id("org.gradle.toolchains.foojay-resolver-convention") version ("1.0.0")
+}
+
+include(":core")
+include(":frontend")
+include(":frontend-android")
+include(":frontend-desktop")
+include(":frontend-web")
 include(":server")
-include(":shared")

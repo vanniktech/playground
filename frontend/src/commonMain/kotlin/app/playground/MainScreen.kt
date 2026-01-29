@@ -1,0 +1,15 @@
+package app.playground
+
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+
+@Composable internal fun MainScreen(
+  navHostController: NavHostController,
+) = Column(Modifier.padding(16.dp)) {
+  Text("Hello World this is crazy shit!")
+}

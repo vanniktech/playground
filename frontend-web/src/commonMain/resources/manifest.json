@@ -1,0 +1,7 @@
+{
+  "name": "Multiplatform App",
+  "short_name": "Multiplatform App",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

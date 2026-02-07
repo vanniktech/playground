@@ -1,0 +1,3 @@
+CREATE TABLE foo (
+  created timestamptz NOT NULL
+);

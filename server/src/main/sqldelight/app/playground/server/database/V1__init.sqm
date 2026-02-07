@@ -1,0 +1,5 @@
+CREATE TABLE foo (
+ value TEXT
+);
+
+UPDATE foo SET value = REPLACE(value, 'foo', 'bar') WHERE value LIKE '%foo%';

@@ -1,0 +1,5 @@
+CREATE TABLE foo (
+  foo TEXT
+);
+
+ALTER TABLE foo ADD COLUMN language character varying(36) NOT NULL DEFAULT 'de-DE';

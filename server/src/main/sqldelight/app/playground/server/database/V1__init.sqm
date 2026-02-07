@@ -1,0 +1,5 @@
+CREATE TABLE foo (
+  updated BIGINT NOT NULL
+);
+
+ALTER TABLE foo ALTER updated TYPE timestamptz USING updated AT TIME ZONE 'UTC';

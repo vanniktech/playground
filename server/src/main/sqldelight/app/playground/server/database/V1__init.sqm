@@ -1,0 +1,5 @@
+CREATE TABLE foo (
+ value TEXT
+);
+
+ALTER TABLE foo DROP COLUMN IF EXISTS bar;

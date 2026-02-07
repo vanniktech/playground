@@ -1,0 +1,6 @@
+-- Assign Vince's & Fabio's mandator to Hello mandator.
+UPDATE coach SET creator_mandator_id = '33333333-3cbb-488f-bba8-2246c8804711'
+  WHERE creator_mandator_id = '11111111-ee5d-2374-8e02-a75cb9abbacb' OR creator_mandator_id = '22222222-d0f5-4bd7-8e82-ff442f326f88';
+
+-- Nuke their account.
+DELETE FROM mandator WHERE id = '11111111-ee5d-2374-8e02-a75cb9abbacb' OR id = '22222222-d0f5-4bd7-8e82-ff442f326f88';

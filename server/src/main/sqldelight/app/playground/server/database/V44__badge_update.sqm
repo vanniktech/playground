@@ -1,0 +1,3 @@
+-- Manually update the updated so that the clients will get a refreshed badge.
+UPDATE coach SET updated = NOW() WHERE badge IS NOT NULL;
+UPDATE coachee SET updated = NOW() WHERE badge IS NOT NULL;

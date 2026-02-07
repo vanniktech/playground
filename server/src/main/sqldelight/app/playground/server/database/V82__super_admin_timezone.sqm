@@ -1,0 +1,1 @@
+ALTER TABLE super_admin ADD COLUMN time_zone character varying(64) NOT NULL DEFAULT 'Europe/Berlin';

@@ -1,0 +1,6 @@
+CREATE TABLE chat_entry_web_socket_queue (
+  id character varying(255) NOT NULL PRIMARY KEY,
+  chat_entry_id character varying(255) NOT NULL,
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  FOREIGN KEY (chat_entry_id) REFERENCES chat_entry(id) ON DELETE CASCADE
+);

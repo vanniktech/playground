@@ -1,0 +1,5 @@
+ALTER TABLE branding ADD COLUMN lottie_animation_prop_1_balloon TEXT;
+ALTER TABLE branding ADD COLUMN lottie_animation_prop_2_candy TEXT;
+ALTER TABLE branding ADD COLUMN lottie_animation_prop_3_cupcake TEXT;
+ALTER TABLE branding ADD COLUMN lottie_animation_prop_4_firework TEXT;
+ALTER TABLE branding ADD COLUMN lottie_animation_prop_5_ice_cream TEXT;

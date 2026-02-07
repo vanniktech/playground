@@ -1,0 +1,6 @@
+ALTER TABLE coach_push_fcm ADD COLUMN device_id character varying(36);
+ALTER TABLE coach_push_aps ADD COLUMN device_id character varying(36);
+ALTER TABLE coachee_push_fcm ADD COLUMN device_id character varying(36);
+ALTER TABLE coachee_push_aps ADD COLUMN device_id character varying(36);
+ALTER TABLE mandator_push_fcm ADD COLUMN device_id character varying(36);
+ALTER TABLE mandator_push_aps ADD COLUMN device_id character varying(36);

@@ -1,0 +1,2 @@
+ALTER TABLE image ADD COLUMN can_be_shared boolean NOT NULL DEFAULT FALSE;
+ALTER TABLE video ADD COLUMN can_be_shared boolean NOT NULL DEFAULT FALSE;

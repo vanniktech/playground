@@ -1,0 +1,2 @@
+-- Migration to: Always assign to hello@becoach.app mandator.
+UPDATE coach SET updated=now(), creator_mandator_id='33333333-3cbb-488f-bba8-2246c8804711' WHERE creator_mandator_id IS NULL;

@@ -1,0 +1,10 @@
+-- We did the migration and there are no missing activity weeks anymore.
+DELETE FROM activity WHERE id IN (SELECT activity_id FROM activity_week WHERE start_day IS NULL OR end_date IS NULL);
+
+-- Drop the column.
+ALTER TABLE activity_week DROP COLUMN start_date;
+ALTER TABLE activity_week DROP COLUMN end_date;
+
+-- Make the columns non null.
+ALTER TABLE activity_week ALTER COLUMN start_day SET NOT NULL;
+ALTER TABLE activity_week ALTER COLUMN end_day SET NOT NULL;

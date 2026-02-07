@@ -1,0 +1,31 @@
+CREATE TABLE super_admin_image (
+  image_id character varying(36) NOT NULL,
+  super_admin_id character varying(36) NOT NULL,
+  FOREIGN KEY (image_id) REFERENCES image(id),
+  FOREIGN KEY (super_admin_id) REFERENCES super_admin(id) ON DELETE CASCADE,
+  PRIMARY KEY (image_id, super_admin_id)
+);
+
+CREATE TABLE mandator_image (
+  image_id character varying(36) NOT NULL,
+  mandator_id character varying(36) NOT NULL,
+  FOREIGN KEY (image_id) REFERENCES image(id),
+  FOREIGN KEY (mandator_id) REFERENCES mandator(id) ON DELETE CASCADE,
+  PRIMARY KEY (image_id, mandator_id)
+);
+
+CREATE TABLE coach_image (
+  image_id character varying(36) NOT NULL,
+  coach_id character varying(36) NOT NULL,
+  FOREIGN KEY (image_id) REFERENCES image(id),
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE,
+  PRIMARY KEY (image_id, coach_id)
+);
+
+CREATE TABLE coachee_image (
+  image_id character varying(36) NOT NULL,
+  coachee_id character varying(36) NOT NULL,
+  FOREIGN KEY (image_id) REFERENCES image(id),
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE,
+  PRIMARY KEY (image_id, coachee_id)
+);

@@ -1,0 +1,36 @@
+
+CREATE TABLE notification.super_admin_notification_group (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  super_admin_id character varying(36) NOT NULL,
+  name character varying(255) NOT NULL,
+  push boolean NOT NULL,
+  mail boolean NOT NULL,
+  FOREIGN KEY (super_admin_id) REFERENCES super_admin(id) ON DELETE CASCADE
+);
+
+CREATE TABLE notification.mandator_notification_group (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  mandator_id character varying(36) NOT NULL,
+  name character varying(255) NOT NULL,
+  push boolean NOT NULL,
+  mail boolean NOT NULL,
+  FOREIGN KEY (mandator_id) REFERENCES mandator(id) ON DELETE CASCADE
+);
+
+CREATE TABLE notification.coach_notification_group (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  coach_id character varying(36) NOT NULL,
+  name character varying(255) NOT NULL,
+  push boolean NOT NULL,
+  mail boolean NOT NULL,
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE
+);
+
+CREATE TABLE notification.coachee_notification_group (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  coachee_id character varying(36) NOT NULL,
+  name character varying(255) NOT NULL,
+  push boolean NOT NULL,
+  mail boolean NOT NULL,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE
+);

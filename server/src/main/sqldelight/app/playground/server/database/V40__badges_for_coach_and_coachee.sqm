@@ -1,0 +1,9 @@
+ALTER TABLE coachee ADD COLUMN badge integer;
+ALTER TABLE coach ADD COLUMN badge integer;
+
+-- BeCoach badge.
+UPDATE coachee SET badge = 1 WHERE login IN ('fabio.wenzing+coachee@gmail.com', 'vincent.oswald@hotmail.de', 'niklas.baudy+live-coachee@familo.net');
+UPDATE coach SET badge = 1 WHERE login IN ('fabio.wenzing+coach@gmail.com', 'vince@fpc.team', 'niklas.baudy+live-coach@familo.net');
+
+-- Verified badge.
+UPDATE coach SET badge = 2 WHERE login IN ('50hacks@becoach.app', 'info@one-medical.de', 'daniel.glaeser@subjectresoul.com');

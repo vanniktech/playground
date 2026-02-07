@@ -1,0 +1,64 @@
+CREATE TABLE james_journey (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  name character varying(256) NOT NULL,
+  coach_id character varying(36) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE
+);
+
+-- When adding a james_journey_entry, check if it needs to be queued into james_journey_session_entry.
+CREATE TABLE james_journey_entry (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  james_journey_id character varying(36) NOT NULL,
+  week INTEGER NOT NULL,
+  day_of_week INTEGER NOT NULL,
+  local_time INTEGER NOT NULL, -- second of day
+  james_template_id character varying(36) NOT NULL,
+  -- 0 -> Chat
+  -- 1 -> My Lessons
+  destination INTEGER NOT NULL,
+  created TIMESTAMPTZ NOT NULL, -- If you want to change it, you have to create a new one and delete this one.
+  FOREIGN KEY (james_journey_id) REFERENCES james_journey(id) ON DELETE CASCADE,
+  FOREIGN KEY (james_template_id) REFERENCES james_template(id) ON DELETE CASCADE
+);
+
+CREATE TABLE james_journey_session (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  name character varying(256) NOT NULL,
+  coach_id character varying(36) NOT NULL,
+  james_journey_id character varying(36) NOT NULL,
+  local_start_date INTEGER NOT NULL, -- yyyyMMdd
+  chat_id character varying(36), -- Only present when started for a single 
+  coach_tag_id character varying(36), -- Only present when started for a coach tag.
+  -- 0 -> Single chat: no-op. Can be cleaned up.
+  -- 1 ->  Synchron: we can uniquely (by chat_id) query the james_journey_session_entry and copy that for our newly created  Can be cleaned up.
+  -- 2 -> Asynchron: (copy all james_journey_entry with local_start_date as today to calculate next local_date). Never ending and can't be cleaned up.
+  joining_preference INTEGER NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (chat_id) REFERENCES chat(id) ON DELETE CASCADE,
+  FOREIGN KEY (coach_tag_id) REFERENCES coach_tag(id) ON DELETE CASCADE,
+  FOREIGN KEY (james_journey_id) REFERENCES james_journey(id) ON DELETE CASCADE,
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE
+);
+
+-- Once an entry_queue matches, and has been converted into a james_session we'll delete the row itself.
+CREATE TABLE james_journey_session_entry (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  james_journey_session_id character varying(36) NOT NULL,
+  james_journey_entry_id character varying(36) NOT NULL,
+  chat_id character varying(36) NOT NULL,
+  coach_tag_coachee_id character varying(36), -- Only when started for a group.
+  local_date INTEGER NOT NULL, -- yyyyMMdd
+  local_time INTEGER NOT NULL, -- second of day
+  james_template_id character varying(36) NOT NULL,
+  -- 0 -> Chat
+  -- 1 -> My Lessons
+  destination INTEGER NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (chat_id) REFERENCES chat(id) ON DELETE CASCADE,
+  FOREIGN KEY (coach_tag_coachee_id) REFERENCES coach_tag_coachee(id) ON DELETE CASCADE,
+  FOREIGN KEY (james_journey_session_id) REFERENCES james_journey_session(id) ON DELETE CASCADE,
+  FOREIGN KEY (james_journey_entry_id) REFERENCES james_journey_entry(id) ON DELETE CASCADE,
+  FOREIGN KEY (james_template_id) REFERENCES james_template(id) ON DELETE CASCADE
+);

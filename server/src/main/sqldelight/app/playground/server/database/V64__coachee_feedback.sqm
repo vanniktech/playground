@@ -1,0 +1,1 @@
+ALTER TABLE coachee ADD COLUMN creator_coachee_id_feedback character varying(36) REFERENCES coachee(id) ON DELETE SET NULL;

@@ -1,0 +1,16 @@
+CREATE TABLE coach_tag (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  name character varying(36) NOT NULL,
+  coach_id character varying(36) NOT NULL,
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  updated TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE
+);
+
+CREATE TABLE coach_tag_coachee (
+  coach_tag_id character varying(36) NOT NULL,
+  coachee_id character varying(36) NOT NULL,
+  FOREIGN KEY (coach_tag_id) REFERENCES coach_tag(id) ON DELETE CASCADE,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE,
+  PRIMARY KEY (coach_tag_id, coachee_id)
+);

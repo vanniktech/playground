@@ -1,0 +1,5 @@
+DELETE FROM activity_coach_deny;
+DELETE FROM target_coach_deny;
+
+ALTER TABLE activity_coach_deny ADD COLUMN coachee_id character varying(36) NOT NULL REFERENCES coachee(id) ON DELETE CASCADE;
+ALTER TABLE target_coach_deny ADD COLUMN coachee_id character varying(36) NOT NULL REFERENCES coachee(id) ON DELETE CASCADE;

@@ -1,0 +1,3 @@
+ALTER TABLE coach ADD COLUMN language character varying(36) NOT NULL DEFAULT 'de-DE';
+ALTER TABLE coachee ADD COLUMN language character varying(36) NOT NULL DEFAULT 'de-DE';
+ALTER TABLE mandator ADD COLUMN language character varying(36) NOT NULL DEFAULT 'de-DE';

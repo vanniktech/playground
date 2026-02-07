@@ -1,0 +1,27 @@
+CREATE TABLE coach_push_fcm (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  token character varying(512),
+  coach_id character varying(36) NOT NULL,
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE
+);
+
+CREATE TABLE coach_push_aps (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  token character varying(512),
+  coach_id character varying(36) NOT NULL,
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE
+);
+
+CREATE TABLE coachee_push_fcm (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  token character varying(512),
+  coachee_id character varying(36) NOT NULL,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE
+);
+
+CREATE TABLE coachee_push_aps (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  token character varying(512),
+  coachee_id character varying(36) NOT NULL,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE
+);

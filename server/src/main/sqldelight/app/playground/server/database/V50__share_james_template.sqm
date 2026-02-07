@@ -1,0 +1,1 @@
+ALTER TABLE james_template ADD COLUMN shared_by_coach_id character varying(36) REFERENCES coach(id) ON DELETE SET NULL;

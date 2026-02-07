@@ -1,0 +1,47 @@
+CREATE TABLE super_admin_authentication (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  device_id character varying(36) NOT NULL,
+  access_token character varying(64) NOT NULL,
+  access_token_expiry TIMESTAMPTZ NOT NULL,
+  refresh_token character varying(64) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  super_admin_id character varying(36),
+  FOREIGN KEY (super_admin_id) REFERENCES super_admin(id) ON DELETE CASCADE
+);
+
+CREATE TABLE mandator_authentication (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  device_id character varying(36) NOT NULL,
+  access_token character varying(64) NOT NULL,
+  access_token_expiry TIMESTAMPTZ NOT NULL,
+  refresh_token character varying(64) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  mandator_id character varying(36),
+  FOREIGN KEY (mandator_id) REFERENCES mandator(id) ON DELETE CASCADE
+);
+
+CREATE TABLE coach_authentication (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  device_id character varying(36) NOT NULL,
+  access_token character varying(64) NOT NULL,
+  access_token_expiry TIMESTAMPTZ NOT NULL,
+  refresh_token character varying(64) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  coach_id character varying(36),
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE
+);
+
+CREATE TABLE coachee_authentication (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  device_id character varying(36) NOT NULL,
+  access_token character varying(64) NOT NULL,
+  access_token_expiry TIMESTAMPTZ NOT NULL,
+  refresh_token character varying(64) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  coachee_id character varying(36),
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE
+);

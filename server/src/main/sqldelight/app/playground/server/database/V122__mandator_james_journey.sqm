@@ -1,0 +1,2 @@
+ALTER TABLE james_journey ADD COLUMN creator_mandator_id character varying(36) REFERENCES mandator(id) ON DELETE SET NULL;
+ALTER TABLE james_journey_entry ADD COLUMN creator_mandator_id character varying(36) REFERENCES mandator(id) ON DELETE SET NULL;

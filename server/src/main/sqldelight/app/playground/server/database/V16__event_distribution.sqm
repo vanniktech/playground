@@ -1,0 +1,1 @@
+ALTER TABLE week ADD COLUMN distribution integer NOT NULL DEFAULT 0;

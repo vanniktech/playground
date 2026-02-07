@@ -1,0 +1,1 @@
+ALTER TABLE coachee RENAME COLUMN creator_coachee_id_feedback TO creator_coachee_id_james_feedback;

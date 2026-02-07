@@ -1,0 +1,15 @@
+ALTER TABLE chat_history DROP CONSTRAINT chat_history_coach_id_fkey;
+ALTER TABLE chat_history DROP CONSTRAINT chat_history_coachee_id_fkey;
+
+ALTER TABLE chat_history DROP COLUMN coach_id;
+ALTER TABLE chat_history DROP COLUMN coachee_id;
+ALTER TABLE chat_history DROP COLUMN bot_message;
+ALTER TABLE chat_history DROP COLUMN coach_message;
+
+DELETE FROM chat_history; -- We don't have any useful data anyways.
+
+ALTER TABLE chat_history ADD COLUMN sender character varying(255) NOT NULL;
+ALTER TABLE chat_history ALTER COLUMN chat_id SET NOT NULL;
+ALTER TABLE chat_history ALTER COLUMN date SET NOT NULL;
+
+ALTER TABLE chat_history RENAME TO chat_entry;

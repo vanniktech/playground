@@ -1,0 +1,89 @@
+-- We deployed Migration 105 to our test servers.
+-- Later we figured out that this isn't the best solution and now we have new schemas.
+-- First drop the old ones.
+DROP TABLE james_template_image;
+DROP TABLE james_session_image;
+DROP TABLE james_feedback_image;
+DROP TABLE james_template_database_meta_data_image;
+DROP TABLE james_image;
+
+-- Now come the new ones. The underlying logic hasn't changed, we've just upgraded them to be also usable in the 
+
+-- Image is 'read only'. Similar to James Feedback. Once created, it can only be deleted.
+-- Image is also shared. Meaning we don't need to copy the same entity for different sub entities (james_template, james_feedback, james_template_database, james_session).
+-- Particularly useful, when sending out sub entities to many persons.
+-- Our clean up mechanism for james images is somewhat complicated.
+-- We need to do a massive JOIN and see whether the image is unused everywhere.
+-- This only works when doing an image diff when editing sub entities, and if an image was deleted, delete the 'permission' table entries.
+CREATE TABLE image (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  mime_type character varying(128) NOT NULL,
+  length bigint NOT NULL,
+  width INTEGER NOT NULL,
+  height INTEGER NOT NULL,
+  path character varying(256) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  creator_super_admin_id character varying(36),
+  creator_mandator_id character varying(36),
+  creator_coach_id character varying(36),
+  creator_coachee_id character varying(36),
+  FOREIGN KEY (creator_super_admin_id) REFERENCES super_admin(id) ON DELETE SET NULL,
+  FOREIGN KEY (creator_mandator_id) REFERENCES mandator(id) ON DELETE SET NULL,
+  FOREIGN KEY (creator_coach_id) REFERENCES coach(id) ON DELETE SET NULL,
+  FOREIGN KEY (creator_coachee_id) REFERENCES coachee(id) ON DELETE SET NULL
+);
+
+-- These tables are some kind of permission system.
+-- Using the `image_id` as well as the corresponding entity id, we can see whether you have access to the image or not.
+-- These need to be filled when either uploading a new entity (james template, james feedback, etc.) or transitioning from entities (e.g. james template is used to create a james feedback).
+-- Similarly, when editing (e.g. james template or james template database) we need to do a diff: delete(current entity images - new entity images)
+
+CREATE TABLE james_template_image (
+  image_id character varying(36) NOT NULL,
+  james_template_id character varying(36) NOT NULL,
+  FOREIGN KEY (image_id) REFERENCES image(id),
+  FOREIGN KEY (james_template_id) REFERENCES james_template(id) ON DELETE CASCADE,
+  PRIMARY KEY (image_id, james_template_id)
+);
+
+CREATE TABLE james_session_image (
+  image_id character varying(36) NOT NULL,
+  james_session_id character varying(36) NOT NULL,
+  FOREIGN KEY (image_id) REFERENCES image(id),
+  FOREIGN KEY (james_session_id) REFERENCES james_session(id) ON DELETE CASCADE,
+  PRIMARY KEY (image_id, james_session_id)
+);
+
+CREATE TABLE james_feedback_image (
+  image_id character varying(36) NOT NULL,
+  james_feedback_id character varying(36) NOT NULL,
+  FOREIGN KEY (image_id) REFERENCES image(id),
+  FOREIGN KEY (james_feedback_id) REFERENCES james_feedback(id) ON DELETE CASCADE,
+  PRIMARY KEY (image_id, james_feedback_id)
+);
+
+CREATE TABLE james_template_database_meta_data_image (
+  image_id character varying(36) NOT NULL,
+  james_template_database_meta_data_id character varying(36) NOT NULL,
+  FOREIGN KEY (image_id) REFERENCES image(id),
+  FOREIGN KEY (james_template_database_meta_data_id) REFERENCES james_template_database_meta_data(id) ON DELETE CASCADE,
+  PRIMARY KEY (image_id, james_template_database_meta_data_id)
+);
+
+CREATE TABLE james_template_database_element_image (
+  image_id character varying(36) NOT NULL,
+  james_template_database_element_id character varying(36) NOT NULL,
+  FOREIGN KEY (image_id) REFERENCES image(id),
+  FOREIGN KEY (james_template_database_element_id) REFERENCES james_template_database_element(id) ON DELETE CASCADE,
+  PRIMARY KEY (image_id, james_template_database_element_id)
+);
+
+CREATE TABLE chat_image (
+  image_id character varying(36) NOT NULL,
+  chat_id character varying(36) NOT NULL,
+  FOREIGN KEY (image_id) REFERENCES image(id),
+  FOREIGN KEY (chat_id) REFERENCES chat(id) ON DELETE CASCADE,
+  PRIMARY KEY (image_id, chat_id)
+);
+
+ALTER TABLE chat_entry ADD COLUMN media TEXT;

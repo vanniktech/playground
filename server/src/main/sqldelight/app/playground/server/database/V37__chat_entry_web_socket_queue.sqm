@@ -1,0 +1,6 @@
+ALTER TABLE chat_entry_web_socket_queue ADD COLUMN coach_id character varying(36);
+ALTER TABLE chat_entry_web_socket_queue ADD COLUMN coachee_id character varying(36);
+ALTER TABLE chat_entry_web_socket_queue ADD COLUMN title character varying(255) NOT NULL;
+
+ALTER TABLE chat_entry_web_socket_queue ADD CONSTRAINT chat_entry_web_socket_queue_coach_id_fkey FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE;
+ALTER TABLE chat_entry_web_socket_queue ADD CONSTRAINT chat_entry_web_socket_queue_coachee_id_fkey FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE;

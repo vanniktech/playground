@@ -1,0 +1,108 @@
+CREATE TABLE file (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  mime_type character varying(128) NOT NULL,
+  length bigint NOT NULL,
+  name character varying(256) NOT NULL,
+  path character varying(256) NOT NULL,
+  blur_hash TEXT NOT NULL,
+  can_be_shared boolean NOT NULL,
+  preview_width INTEGER NOT NULL,
+  preview_height INTEGER NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  creator_super_admin_id character varying(36),
+  creator_mandator_id character varying(36),
+  creator_coach_id character varying(36),
+  creator_coachee_id character varying(36),
+  FOREIGN KEY (creator_super_admin_id) REFERENCES super_admin(id) ON DELETE SET NULL,
+  FOREIGN KEY (creator_mandator_id) REFERENCES mandator(id) ON DELETE SET NULL,
+  FOREIGN KEY (creator_coach_id) REFERENCES coach(id) ON DELETE SET NULL,
+  FOREIGN KEY (creator_coachee_id) REFERENCES coachee(id) ON DELETE SET NULL
+);
+
+CREATE TABLE james_template_file (
+  file_id character varying(36) NOT NULL,
+  james_template_id character varying(36) NOT NULL,
+  FOREIGN KEY (file_id) REFERENCES file(id),
+  FOREIGN KEY (james_template_id) REFERENCES james_template(id) ON DELETE CASCADE,
+  PRIMARY KEY (file_id, james_template_id)
+);
+
+CREATE TABLE james_session_file (
+  file_id character varying(36) NOT NULL,
+  james_session_id character varying(36) NOT NULL,
+  FOREIGN KEY (file_id) REFERENCES file(id),
+  FOREIGN KEY (james_session_id) REFERENCES james_session(id) ON DELETE CASCADE,
+  PRIMARY KEY (file_id, james_session_id)
+);
+
+CREATE TABLE james_feedback_file (
+  file_id character varying(36) NOT NULL,
+  james_feedback_id character varying(36) NOT NULL,
+  FOREIGN KEY (file_id) REFERENCES file(id),
+  FOREIGN KEY (james_feedback_id) REFERENCES james_feedback(id) ON DELETE CASCADE,
+  PRIMARY KEY (file_id, james_feedback_id)
+);
+
+CREATE TABLE james_template_database_meta_data_file (
+  file_id character varying(36) NOT NULL,
+  james_template_database_meta_data_id character varying(36) NOT NULL,
+  FOREIGN KEY (file_id) REFERENCES file(id),
+  FOREIGN KEY (james_template_database_meta_data_id) REFERENCES james_template_database_meta_data(id) ON DELETE CASCADE,
+  PRIMARY KEY (file_id, james_template_database_meta_data_id)
+);
+
+CREATE TABLE james_template_database_element_file (
+  file_id character varying(36) NOT NULL,
+  james_template_database_element_id character varying(36) NOT NULL,
+  FOREIGN KEY (file_id) REFERENCES file(id),
+  FOREIGN KEY (james_template_database_element_id) REFERENCES james_template_database_element(id) ON DELETE CASCADE,
+  PRIMARY KEY (file_id, james_template_database_element_id)
+);
+
+CREATE TABLE chat_file (
+  file_id character varying(36) NOT NULL,
+  chat_id character varying(36) NOT NULL,
+  FOREIGN KEY (file_id) REFERENCES file(id),
+  FOREIGN KEY (chat_id) REFERENCES chat(id) ON DELETE CASCADE,
+  PRIMARY KEY (file_id, chat_id)
+);
+
+CREATE TABLE james_feedback_answer_file (
+  file_id character varying(36) NOT NULL,
+  james_feedback_answer_id character varying(36) NOT NULL,
+  FOREIGN KEY (file_id) REFERENCES file(id),
+  FOREIGN KEY (james_feedback_answer_id) REFERENCES james_feedback_answer(id) ON DELETE CASCADE,
+  PRIMARY KEY (file_id, james_feedback_answer_id)
+);
+
+CREATE TABLE super_admin_file (
+  file_id character varying(36) NOT NULL,
+  super_admin_id character varying(36) NOT NULL,
+  FOREIGN KEY (file_id) REFERENCES file(id),
+  FOREIGN KEY (super_admin_id) REFERENCES super_admin(id) ON DELETE CASCADE,
+  PRIMARY KEY (file_id, super_admin_id)
+);
+
+CREATE TABLE mandator_file (
+  file_id character varying(36) NOT NULL,
+  mandator_id character varying(36) NOT NULL,
+  FOREIGN KEY (file_id) REFERENCES file(id),
+  FOREIGN KEY (mandator_id) REFERENCES mandator(id) ON DELETE CASCADE,
+  PRIMARY KEY (file_id, mandator_id)
+);
+
+CREATE TABLE coach_file (
+  file_id character varying(36) NOT NULL,
+  coach_id character varying(36) NOT NULL,
+  FOREIGN KEY (file_id) REFERENCES file(id),
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE,
+  PRIMARY KEY (file_id, coach_id)
+);
+
+CREATE TABLE coachee_file (
+  file_id character varying(36) NOT NULL,
+  coachee_id character varying(36) NOT NULL,
+  FOREIGN KEY (file_id) REFERENCES file(id),
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE,
+  PRIMARY KEY (file_id, coachee_id)
+);

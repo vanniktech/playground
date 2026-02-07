@@ -1,0 +1,38 @@
+ALTER TABLE super_admin ALTER COLUMN language DROP NOT NULL;
+ALTER TABLE super_admin ALTER COLUMN language DROP DEFAULT;
+
+ALTER TABLE super_admin ALTER COLUMN time_zone DROP NOT NULL;
+ALTER TABLE super_admin ALTER COLUMN time_zone DROP DEFAULT;
+
+ALTER TABLE mandator ALTER COLUMN language DROP NOT NULL;
+ALTER TABLE mandator ALTER COLUMN language DROP DEFAULT;
+
+ALTER TABLE mandator ALTER COLUMN time_zone DROP NOT NULL;
+ALTER TABLE mandator ALTER COLUMN time_zone DROP DEFAULT;
+
+ALTER TABLE coach ALTER COLUMN language DROP NOT NULL;
+ALTER TABLE coach ALTER COLUMN language DROP DEFAULT;
+
+ALTER TABLE coach ALTER COLUMN time_zone DROP NOT NULL;
+ALTER TABLE coach ALTER COLUMN time_zone DROP DEFAULT;
+
+ALTER TABLE coachee ALTER COLUMN language DROP NOT NULL;
+ALTER TABLE coachee ALTER COLUMN language DROP DEFAULT;
+
+ALTER TABLE coachee ALTER COLUMN time_zone DROP NOT NULL;
+ALTER TABLE coachee ALTER COLUMN time_zone DROP DEFAULT;
+
+-- SuperAdmin needs to no migration.
+
+-- Migrating all of the other entities.
+UPDATE mandator
+  SET updated = now(), language = NULL, time_zone = NULL
+  WHERE first_login IS NULL AND last_seen IS NULL;
+
+UPDATE coach
+  SET updated = now(), language = NULL, time_zone = NULL
+  WHERE first_login IS NULL AND last_seen IS NULL;
+
+UPDATE coachee
+  SET updated = now(), language = NULL, time_zone = NULL
+  WHERE first_login IS NULL AND last_seen IS NULL;

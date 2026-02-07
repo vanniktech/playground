@@ -1,0 +1,10 @@
+CREATE TABLE coach_tag_code (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  code character varying(8) NOT NULL UNIQUE,
+  coach_id character varying(36) NOT NULL,
+  coach_tag_id character varying(36),
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  updated TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE,
+  FOREIGN KEY (coach_tag_id) REFERENCES coach_tag(id) ON DELETE SET NULL
+);

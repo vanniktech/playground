@@ -1,0 +1,4 @@
+ALTER TABLE coachee DROP COLUMN creator_coachee_id_feedback;
+ALTER TABLE coachee ADD COLUMN creator_coachee_id_feedback character varying(36);
+-- We're creating this without referencing the coachee table.
+-- When a coachee that has invited someone via feedback, deletes their account we still have a reference.

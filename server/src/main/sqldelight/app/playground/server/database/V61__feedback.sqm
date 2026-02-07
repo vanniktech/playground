@@ -1,0 +1,35 @@
+
+CREATE TABLE feedback (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  name character varying(255) NOT NULL,
+  anonymous boolean NOT NULL,
+  value TEXT NOT NULL,
+  version bigint NOT NULL,
+  coachee_id character varying(36) NOT NULL,
+  creator_coach_id character varying(36),
+  created TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE,
+  FOREIGN KEY (creator_coach_id) REFERENCES coach(id) ON DELETE SET NULL
+);
+
+CREATE TABLE feedback_answer (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  answers TEXT,
+  anonymous boolean NOT NULL,
+  coachee_id character varying(36) NOT NULL,
+  feedback_id character varying(36) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE,
+  FOREIGN KEY (feedback_id) REFERENCES feedback(id) ON DELETE CASCADE
+);
+
+CREATE TABLE feedback_coach_allow (
+  feedback_id character varying(36) NOT NULL,
+  coach_id character varying(36) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (feedback_id) REFERENCES feedback(id) ON DELETE CASCADE,
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE,
+  PRIMARY KEY (feedback_id, coach_id)
+);

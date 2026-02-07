@@ -1,0 +1,17 @@
+INSERT INTO coach(id, created, updated, code_prefix, login, creator_mandator_id, first_name, last_name, phone, info, image) VALUES ('1e8a0303-9a82-4632-aab9-6e7019f415a5', '2020-07-15 10:00:00', '2020-07-15 10:00:00', 'YYY1', 'niklas+coachempty@belabs.de', NULL, 'Niklas', 'Coach empty', NULL, NULL, NULL);
+INSERT INTO coachee(id, created, updated, first_name, gender, last_name, login, phone) VALUES ('f160bf36-52af-4894-a508-2ed416014e1f', '2020-07-15 10:00:00', '2020-07-15 10:00:00', 'Niklas', NULL, NULL, 'niklas+empty@belabs.de', NULL);
+
+INSERT INTO coach(id, created, updated, code_prefix, login, creator_mandator_id, first_name, last_name, phone, info, image) VALUES ('e55e7ab4-b53e-4cfe-8635-0435a4807f5e', '2020-07-15 10:00:00', '2020-07-15 10:00:00', 'YYY2', 'fabio+coachempty@belabs.de', NULL, 'Fabio', 'Coach empty', NULL, NULL, NULL);
+INSERT INTO coachee(id, created, updated, first_name, gender, last_name, login, phone) VALUES ('003b61be-6646-454e-a7ff-b4c845106578', '2020-07-15 10:00:00', '2020-07-15 10:00:00', 'Fabio', NULL, NULL, 'fabio+empty@belabs.de', NULL);
+
+INSERT INTO coach(id, created, updated, code_prefix, login, creator_mandator_id, first_name, last_name, phone, info, image) VALUES ('145662a4-6023-49a9-bf42-0d4708bcf888', '2020-07-15 10:00:00', '2020-07-15 10:00:00', 'YYY3', 'vince+coachempty@belabs.de', NULL, 'Vince', 'Coach empty', NULL, NULL, NULL);
+INSERT INTO coachee(id, created, updated, first_name, gender, last_name, login, phone) VALUES ('c2d34aad-f718-4b9f-8ab6-f119da5e36ad', '2020-07-15 10:00:00', '2020-07-15 10:00:00', 'Vince', NULL, NULL, 'vince+empty@belabs.de', NULL);
+
+INSERT INTO coach_coachee VALUES ('1e8a0303-f3df-4195-9fda-9efa012c3059', 'YYY1YYYY', '1e8a0303-9a82-4632-aab9-6e7019f415a5', NULL, '2020-07-15 10:00:00', '2020-07-15 10:00:00');
+INSERT INTO coach_coachee VALUES ('1e8a0303-c6ca-4026-9c53-d1da62bd3991', 'YYY1YYY1', '1e8a0303-9a82-4632-aab9-6e7019f415a5', NULL, '2020-07-15 10:00:00', '2020-07-15 10:00:00');
+
+INSERT INTO coach_coachee VALUES ('e55e7ab4-4994-4c6e-8bcc-82bc2a73ed6b', 'YYY2YYYY', 'e55e7ab4-b53e-4cfe-8635-0435a4807f5e', NULL, '2020-07-15 10:00:00', '2020-07-15 10:00:00');
+INSERT INTO coach_coachee VALUES ('e55e7ab4-4526-44a5-8f7f-d51eb2fc86f0', 'YYY2YYY1', 'e55e7ab4-b53e-4cfe-8635-0435a4807f5e', NULL, '2020-07-15 10:00:00', '2020-07-15 10:00:00');
+
+INSERT INTO coach_coachee VALUES ('145662a4-0059-46e9-b044-04c11f2dc094', 'YYY3YYYY', '145662a4-6023-49a9-bf42-0d4708bcf888', NULL, '2020-07-15 10:00:00', '2020-07-15 10:00:00');
+INSERT INTO coach_coachee VALUES ('145662a4-6fc0-4f0e-8b3f-a76e40f1f682', 'YYY3YYY1', '145662a4-6023-49a9-bf42-0d4708bcf888', NULL, '2020-07-15 10:00:00', '2020-07-15 10:00:00');

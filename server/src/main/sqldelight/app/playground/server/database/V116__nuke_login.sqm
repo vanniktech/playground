@@ -1,0 +1,4 @@
+ALTER TABLE super_admin DROP COLUMN login;
+ALTER TABLE mandator DROP COLUMN login;
+ALTER TABLE coach DROP COLUMN login;
+ALTER TABLE coachee DROP COLUMN login;

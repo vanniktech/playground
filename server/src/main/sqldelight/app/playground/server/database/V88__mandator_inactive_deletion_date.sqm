@@ -1,0 +1,3 @@
+ALTER TABLE mandator ADD COLUMN inactive_deletion_date TIMESTAMPTZ;
+
+UPDATE mandator SET inactive_deletion_date = now() + '90 days' WHERE first_login IS NULL;

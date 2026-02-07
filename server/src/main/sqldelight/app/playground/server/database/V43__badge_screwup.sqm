@@ -1,0 +1,2 @@
+-- Screw ups from previous migrations.
+UPDATE coach SET badge = 1, updated = NOW() WHERE id IN ('8f5f3ffb-0f5a-4173-9d9c-af71fe0a7501', 'f6b5c91e-0861-441c-8cf3-aba41cce6735', '9217296c-644e-4122-afe0-8bb57b8bccc1');

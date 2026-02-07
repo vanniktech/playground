@@ -1,0 +1,4 @@
+UPDATE james_session
+  SET source_id = id
+  WHERE source_id IS NULL
+;

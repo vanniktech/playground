@@ -1,0 +1,1 @@
+INSERT INTO mandator(id, name, created, updated, login, is_mandator_admin, creator_super_admin_id) VALUES ('33333333-3cbb-488f-bba8-2246c8804711', 'BeLabs', '2019-01-15 14:04:32', '2019-01-15 14:04:32', 'hello@belabs.de', TRUE, '00000000-3cbb-488f-bba8-2246c8804711');

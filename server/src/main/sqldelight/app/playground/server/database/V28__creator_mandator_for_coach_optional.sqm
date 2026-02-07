@@ -1,0 +1,1 @@
+ALTER TABLE coach ALTER COLUMN creator_mandator_id DROP NOT NULL;

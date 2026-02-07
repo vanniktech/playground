@@ -1,0 +1,52 @@
+CREATE TABLE mandator_avatar (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  mandator_id character varying(36),
+  mime_type character varying(128) NOT NULL,
+  length bigint NOT NULL,
+  width INTEGER NOT NULL,
+  height INTEGER NOT NULL,
+  path character varying(256) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (mandator_id) REFERENCES mandator(id) ON DELETE SET NULL -- When deleting, we'll set this null in order to clean up the actual file.
+);
+
+CREATE TABLE coach_avatar (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  coach_id character varying(36),
+  mime_type character varying(128) NOT NULL,
+  length bigint NOT NULL,
+  width INTEGER NOT NULL,
+  height INTEGER NOT NULL,
+  path character varying(256) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE SET NULL -- When deleting, we'll set this null in order to clean up the actual file.
+);
+
+CREATE TABLE coachee_avatar (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  coachee_id character varying(36),
+  mime_type character varying(128) NOT NULL,
+  length bigint NOT NULL,
+  width INTEGER NOT NULL,
+  height INTEGER NOT NULL,
+  path character varying(256) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE SET NULL -- When deleting, we'll set this null in order to clean up the actual file.
+);
+
+CREATE TABLE super_admin_avatar (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  super_admin_id character varying(36),
+  mime_type character varying(128) NOT NULL,
+  length bigint NOT NULL,
+  width INTEGER NOT NULL,
+  height INTEGER NOT NULL,
+  path character varying(256) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (super_admin_id) REFERENCES super_admin(id) ON DELETE SET NULL -- When deleting, we'll set this null in order to clean up the actual file.
+);
+
+ALTER TABLE mandator ADD COLUMN avatar_id character varying(36) REFERENCES mandator_avatar(id) ON DELETE SET NULL;
+ALTER TABLE coach ADD COLUMN avatar_id character varying(36) REFERENCES coach_avatar(id) ON DELETE SET NULL;
+ALTER TABLE coachee ADD COLUMN avatar_id character varying(36) REFERENCES coachee_avatar(id) ON DELETE SET NULL;
+ALTER TABLE super_admin ADD COLUMN avatar_id character varying(36) REFERENCES super_admin_avatar(id) ON DELETE SET NULL;

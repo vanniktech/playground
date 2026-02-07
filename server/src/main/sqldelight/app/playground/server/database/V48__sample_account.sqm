@@ -1,0 +1,6 @@
+INSERT INTO coach(id, created, updated, code_prefix, login, creator_mandator_id, first_name, last_name, phone, info, image) VALUES ('ecdd6b3b-98bd-496a-9860-b7a9dc9643c5', '2020-07-15 10:00:00', '2020-07-15 10:00:00', 'LEON', 'sample1+coach@belabs.de', NULL, 'Leon', 'Hoch', NULL, NULL, NULL);
+INSERT INTO coachee(id, created, updated, first_name, gender, last_name, login, phone) VALUES ('6f73ebfe-ee71-46a6-a975-28d41b35d472', '2020-07-15 10:00:00', '2020-07-15 10:00:00', 'Nadine', NULL, 'Herz', 'sample1+coachee@belabs.de', NULL);
+
+INSERT INTO coach_coachee VALUES ('68d7e494-5600-41cc-b823-d6a2e4f5d795', 'LEON1234', 'ecdd6b3b-98bd-496a-9860-b7a9dc9643c5', NULL, '2020-07-15 10:00:00', '2020-07-15 10:00:00');
+INSERT INTO coach_coachee VALUES ('f9c9a27a-a34b-4065-a9d6-3614ce5417ae', 'LEON5678', 'ecdd6b3b-98bd-496a-9860-b7a9dc9643c5', NULL, '2020-07-15 10:00:00', '2020-07-15 10:00:00');
+INSERT INTO coach_coachee VALUES ('19cefecb-ae1a-457c-9f8f-c54396e89b77', 'LEON0000', 'ecdd6b3b-98bd-496a-9860-b7a9dc9643c5', NULL, '2020-07-15 10:00:00', '2020-07-15 10:00:00');

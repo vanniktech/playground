@@ -1,0 +1,5 @@
+ALTER TABLE james_template ADD COLUMN creator_super_admin_id character varying(36) REFERENCES super_admin(id) ON DELETE SET NULL;
+ALTER TABLE james_template ADD COLUMN creator_mandator_id character varying(36) REFERENCES mandator(id) ON DELETE SET NULL;
+
+UPDATE james_template SET creator_mandator_id = (SELECT creator_mandator_id FROM coach WHERE coach.id = james_template.coach_id)
+;

@@ -1,0 +1,12 @@
+CREATE TABLE activity_coach (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  activity_id character varying(36) NOT NULL,
+  coachee_id character varying(36) NOT NULL,
+  coach_id character varying(36) NOT NULL,
+  state int NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (activity_id) REFERENCES activity(id) ON DELETE CASCADE,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE,
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE
+);

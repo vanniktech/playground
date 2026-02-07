@@ -1,0 +1,9 @@
+CREATE TABLE james_template (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  name character varying(255) NOT NULL,
+  value TEXT NOT NULL,
+  coach_id character varying(36) NOT NULL,
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  updated TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE
+);

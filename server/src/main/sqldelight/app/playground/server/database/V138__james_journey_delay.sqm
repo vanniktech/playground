@@ -1,0 +1,9 @@
+ALTER TABLE james_journey_entry ADD COLUMN delay INTERVAL;
+ALTER TABLE james_journey_session_entry ADD COLUMN delay INTERVAL;
+
+CREATE TABLE james_journey_session_james_session (
+  chat_id uuid NOT NULL REFERENCES chat(id) ON DELETE CASCADE,
+  james_journey_session_id uuid NOT NULL REFERENCES james_journey_session(id) ON DELETE CASCADE,
+  james_session_id uuid NOT NULL REFERENCES james_session(id) ON DELETE CASCADE,
+  PRIMARY KEY (chat_id, james_journey_session_id)
+);

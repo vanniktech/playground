@@ -1,0 +1,4 @@
+ALTER TABLE mandator ADD COLUMN first_login TIMESTAMPTZ;
+UPDATE mandator SET first_login = created; -- This is not entirely true but we don't necessarily care about this that much.
+
+ALTER TABLE mandator ADD COLUMN first_login_reminder TIMESTAMPTZ;

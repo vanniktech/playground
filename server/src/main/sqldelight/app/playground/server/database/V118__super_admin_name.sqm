@@ -1,0 +1,6 @@
+ALTER TABLE super_admin ADD COLUMN name character varying(255) NOT NULL DEFAULT '';
+
+UPDATE super_admin SET name = 'Niklas' WHERE id = '00000000-3cbb-488f-bba8-2246c8804711';
+UPDATE super_admin SET name = 'BeLabs' WHERE id = '44444444-3cbb-488f-bba8-2246c8804711';
+
+ALTER TABLE super_admin ALTER COLUMN name DROP DEFAULT;

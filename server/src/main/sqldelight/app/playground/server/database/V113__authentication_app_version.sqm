@@ -1,0 +1,4 @@
+ALTER TABLE super_admin_authentication ADD COLUMN app_version character varying(12) NOT NULL;
+ALTER TABLE mandator_authentication ADD COLUMN app_version character varying(12) NOT NULL;
+ALTER TABLE coach_authentication ADD COLUMN app_version character varying(12) NOT NULL;
+ALTER TABLE coachee_authentication ADD COLUMN app_version character varying(12) NOT NULL;

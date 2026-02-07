@@ -1,9 +1,171 @@
-CREATE TABLE app.foo (
-  id character varying(36) NOT NULL PRIMARY KEY
+SET client_encoding = 'UTF8';
+
+
+CREATE TABLE super_admin (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  login character varying(255) UNIQUE NOT NULL,
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  updated TIMESTAMP WITHOUT TIME ZONE NOT NULL
 );
 
-CREATE TABLE app.bar (
+CREATE TABLE mandator (
   id character varying(36) NOT NULL PRIMARY KEY,
-  creator_foo_id character varying(36) NOT NULL,
-  FOREIGN KEY (creator_foo_id) REFERENCES app.foo(id)
+  login character varying(255) UNIQUE NOT NULL,
+  is_mandator_admin boolean DEFAULT FALSE NOT NULL,
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  updated TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  creator_super_admin_id character varying(36) NOT NULL,
+  FOREIGN KEY (creator_super_admin_id) REFERENCES super_admin(id)
 );
+
+CREATE TABLE coach (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  login character varying(255) UNIQUE NOT NULL,
+  first_name character varying(255) NOT NULL,
+  last_name character varying(255),
+  code_prefix character varying(4) NOT NULL,
+  phone character varying(255),
+  info character varying(4096),
+  creator_mandator_id character varying(36) NOT NULL,
+  image character varying(255) NOT NULL,
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  updated TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  FOREIGN KEY (creator_mandator_id) REFERENCES mandator(id)
+);
+
+CREATE TABLE coachee (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  login character varying(255) UNIQUE NOT NULL,
+  first_name character varying(255) NOT NULL,
+  last_name character varying(255),
+  gender character varying(10),
+  phone character varying(255),
+  creator_mandator_id character varying(36),
+  creator_coach_id character varying(36),
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  updated TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  FOREIGN KEY (creator_mandator_id) REFERENCES mandator(id) ON DELETE SET NULL,
+  FOREIGN KEY (creator_coach_id) REFERENCES coach(id) ON DELETE SET NULL
+);
+
+CREATE TABLE coachee_verification_token (
+  id character varying(80) NOT NULL,
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  updated TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  coachee_id character varying(36) NOT NULL,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE
+);
+
+CREATE TABLE challenge (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  name character varying(255) NOT NULL,
+  emoji character varying(255) NOT NULL,
+  coachee_id character varying(36) NOT NULL,
+  creator_coach_id character varying(36),
+  cancel_date TIMESTAMP WITHOUT TIME ZONE,
+  sort_order integer NOT NULL,
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  updated TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE,
+  FOREIGN KEY (creator_coach_id) REFERENCES coach(id) ON DELETE SET NULL
+);
+
+CREATE TABLE week (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  direction integer NOT NULL,
+  start_date TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  unit integer NOT NULL,
+  week integer NOT NULL,
+  challenge_id character varying(36) NOT NULL,
+  coachee_id character varying(36) NOT NULL,
+  end_date TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  updated TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE,
+  FOREIGN KEY (challenge_id) REFERENCES challenge(id) ON DELETE CASCADE
+);
+
+CREATE TABLE coach_coachee (
+  id character varying(255) NOT NULL PRIMARY KEY,
+  code character varying(8) NOT NULL UNIQUE,
+  coach_id character varying(36) NOT NULL,
+  coachee_id character varying(36),
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  updated TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE SET NULL
+);
+
+CREATE TABLE event (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  amount double precision,
+  ill boolean NOT NULL,
+  planned_amount double precision NOT NULL,
+  event_date TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  coachee_id character varying(36) NOT NULL,
+  challenge_id character varying(36) NOT NULL,
+  week_id character varying(36) NOT NULL,
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  updated TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE,
+  FOREIGN KEY (challenge_id) REFERENCES challenge(id) ON DELETE CASCADE,
+  FOREIGN KEY (week_id) REFERENCES week(id) ON DELETE CASCADE
+);
+
+CREATE TABLE target (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  name character varying(255) NOT NULL,
+  coachee_id character varying(36) NOT NULL,
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  updated TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE
+);
+
+CREATE TABLE target_challenge (
+  target_id character varying(36) NOT NULL,
+  challenge_id character varying(36) NOT NULL,
+  FOREIGN KEY (challenge_id) REFERENCES challenge(id) ON DELETE CASCADE,
+  FOREIGN KEY (target_id) REFERENCES target(id) ON DELETE CASCADE
+);
+
+CREATE TABLE chat (
+  id character varying(255) NOT NULL PRIMARY KEY,
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  updated TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  coach_id character varying(255) NOT NULL,
+  coachee_id character varying(255) NOT NULL,
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE
+);
+
+CREATE TABLE chat_history (
+  id character varying(255) NOT NULL PRIMARY KEY,
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  updated TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  bot_message boolean NOT NULL,
+  coach_message boolean NOT NULL,
+  date TIMESTAMP WITHOUT TIME ZONE,
+  message text,
+  chat_id character varying(255),
+  coach_id character varying(255),
+  coachee_id character varying(255),
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE,
+  FOREIGN KEY (chat_id) REFERENCES chat(id) ON DELETE CASCADE,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE
+);
+
+-- Initial data.
+
+INSERT INTO super_admin(id, created, updated, login) VALUES ('00000000-3cbb-488f-bba8-2246c8804711', '2019-01-15 14:04:32', '2019-01-15 14:04:32', 'niklas.baudy@vanniktech.de');
+
+INSERT INTO mandator(id, created, updated, login, is_mandator_admin, creator_super_admin_id) VALUES ('00000000-3cbb-488f-bba8-2246c8804711', '2019-01-15 14:04:32', '2019-01-15 14:04:32', 'niklas.baudy@vanniktech.de', TRUE, '00000000-3cbb-488f-bba8-2246c8804711');
+INSERT INTO mandator(id, created, updated, login, is_mandator_admin, creator_super_admin_id) VALUES ('11111111-ee5d-2374-8e02-a75cb9abbacb', '2019-01-15 14:04:32', '2019-01-15 14:04:32', 'vince@belabs.de', TRUE, '00000000-3cbb-488f-bba8-2246c8804711');
+INSERT INTO mandator(id, created, updated, login, is_mandator_admin, creator_super_admin_id) VALUES ('22222222-d0f5-4bd7-8e82-ff442f326f88', '2019-01-15 14:04:32', '2019-01-15 14:04:32', 'fabio@belabs.de', TRUE, '00000000-3cbb-488f-bba8-2246c8804711');
+
+INSERT INTO coach(id, created, updated, code_prefix, login, creator_mandator_id, first_name, last_name, phone, info, image) VALUES ('00000000-3cbb-488f-bba8-2246c8804711', '2019-08-05 21:48:58', '2019-08-05 21:48:58', '0000', 'niklas.baudy@vanniktech.de', '00000000-3cbb-488f-bba8-2246c8804711', 'Niklas', 'Baudy', NULL, NULL, 'https://gravatar.com/avatar/186cea67adaf894b67d714168a0d4591');
+INSERT INTO coach(id, created, updated, code_prefix, login, creator_mandator_id, first_name, last_name, phone, info, image) VALUES ('11111111-ee5d-2374-8e02-a75cb9abbacb', '2019-08-05 21:48:58', '2019-08-05 21:48:58', '1111', 'vince@belabs.de', '11111111-ee5d-2374-8e02-a75cb9abbacb', 'Vincent Maria', 'Oswald', NULL, NULL, 'https://api.becoach.app/img/coach/Vince_3x.png');
+INSERT INTO coach(id, created, updated, code_prefix, login, creator_mandator_id, first_name, last_name, phone, info, image) VALUES ('22222222-d0f5-4bd7-8e82-ff442f326f88', '2019-08-05 21:48:58', '2019-08-05 21:48:58', '2222', 'fabio@belabs.de', '22222222-d0f5-4bd7-8e82-ff442f326f88', 'Fabio', 'Winzinger', NULL, NULL, 'https://api.becoach.app/img/coach/Carmen_3x.png');
+
+INSERT INTO coachee(id, created, updated, first_name, gender, last_name, login, phone) VALUES ('00000000-3cbb-488f-bba8-2246c8804711', '2019-10-17 17:46:19.543', '2019-10-17 17:46:19.544', 'Niklas', 'M', 'Baudy', 'niklas.baudy@vanniktech.de', NULL);
+INSERT INTO coachee(id, created, updated, first_name, gender, last_name, login, phone) VALUES ('11111111-ee5d-2374-8e02-a75cb9abbacb', '2019-08-05 21:48:58.465', '2019-08-05 21:48:58.499', 'Vincent', 'M', 'Oswald', 'vince@belabs.de', NULL);
+INSERT INTO coachee(id, created, updated, first_name, gender, last_name, login, phone) VALUES ('22222222-d0f5-4bd7-8e82-ff442f326f88', '2019-08-13 13:29:33', '2019-08-13 13:29:33', 'Fabio', 'M', 'Winzinger', 'fabio@belabs.de', NULL);

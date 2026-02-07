@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS event;
+DROP TABLE IF EXISTS week;
+DROP TABLE IF EXISTS target_challenge;
+DROP TABLE IF EXISTS challenge;

@@ -1,0 +1,83 @@
+ALTER TABLE target ADD COLUMN creator_coach_id character varying(36) REFERENCES coach(id) ON DELETE SET NULL;
+
+CREATE TABLE activity (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  name character varying(255) NOT NULL,
+  emoji character varying(255) NOT NULL,
+  coachee_id character varying(36) NOT NULL,
+  creator_coach_id character varying(36),
+  cancelled_at TIMESTAMPTZ,
+  cancelled_reason integer,
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE,
+  FOREIGN KEY (creator_coach_id) REFERENCES coach(id) ON DELETE SET NULL
+);
+
+CREATE TABLE activity_week (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  week integer NOT NULL,
+  direction integer NOT NULL,
+  unit integer NOT NULL,
+  distribution integer NOT NULL DEFAULT 0,
+  start_date TIMESTAMPTZ NOT NULL,
+  activity_id character varying(36) NOT NULL,
+  coachee_id character varying(36) NOT NULL,
+  creator_coach_id character varying(36),
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  amount1 double precision,
+  amount_planned1 double precision,
+  note1 character varying(1024),
+  amount2 double precision,
+  amount_planned2 double precision,
+  note2 character varying(1024),
+  amount3 double precision,
+  amount_planned3 double precision,
+  note3 character varying(1024),
+  amount4 double precision,
+  amount_planned4 double precision,
+  note4 character varying(1024),
+  amount5 double precision,
+  amount_planned5 double precision,
+  note5 character varying(1024),
+  amount6 double precision,
+  amount_planned6 double precision,
+  note6 character varying(1024),
+  amount7 double precision,
+  amount_planned7 double precision,
+  note7 character varying(1024),
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE,
+  FOREIGN KEY (activity_id) REFERENCES activity(id) ON DELETE CASCADE,
+  FOREIGN KEY (creator_coach_id) REFERENCES coach(id) ON DELETE SET NULL
+);
+
+CREATE TABLE target_activity (
+  target_id character varying(36) NOT NULL,
+  activity_id character varying(36) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (target_id) REFERENCES target(id) ON DELETE CASCADE,
+  FOREIGN KEY (activity_id) REFERENCES activity(id) ON DELETE CASCADE,
+  PRIMARY KEY (target_id, activity_id)
+);
+
+CREATE TABLE activity_coach_deny (
+  activity_id character varying(36) NOT NULL,
+  coach_id character varying(36) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (activity_id) REFERENCES activity(id) ON DELETE CASCADE,
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE,
+  PRIMARY KEY (activity_id, coach_id)
+);
+
+CREATE TABLE target_coach_deny (
+  target_id character varying(36) NOT NULL,
+  coach_id character varying(36) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (target_id) REFERENCES target(id) ON DELETE CASCADE,
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE,
+  PRIMARY KEY (target_id, coach_id)
+);

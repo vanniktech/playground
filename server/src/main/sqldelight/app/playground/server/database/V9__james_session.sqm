@@ -1,0 +1,11 @@
+CREATE TABLE james_session (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  state integer NOT NULL,
+  chat_id character varying(36) NOT NULL,
+  name character varying(255) NOT NULL,
+  value TEXT NOT NULL,
+  answers TEXT NOT NULL,
+  created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  updated TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+  FOREIGN KEY (chat_id) REFERENCES chat(id) ON DELETE CASCADE
+);

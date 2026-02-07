@@ -1,0 +1,4 @@
+ALTER TABLE coach ADD COLUMN avatar_privacy INTEGER DEFAULT 1;
+ALTER TABLE coachee ADD COLUMN avatar_privacy INTEGER DEFAULT 1;
+ALTER TABLE mandator ADD COLUMN avatar_privacy INTEGER DEFAULT 1;
+ALTER TABLE super_admin ADD COLUMN avatar_privacy INTEGER DEFAULT 1;

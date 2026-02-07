@@ -1,0 +1,5 @@
+UPDATE coach_coachee 
+  SET updated = now(), connected_at = (SELECT created FROM chat WHERE coach_id = coach_coachee.coach_id AND coachee_id = coach_coachee.coachee_id)
+  WHERE coachee_id IS NOT NULL
+  AND connected_at IS NULL
+;

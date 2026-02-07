@@ -1,0 +1,8 @@
+ALTER TABLE feedback RENAME TO james_feedback;
+
+ALTER TABLE feedback_answer RENAME TO james_feedback_answer;
+
+ALTER TABLE feedback_coach_allow RENAME TO james_feedback_coach_allow;
+
+ALTER TABLE james_feedback_answer RENAME COLUMN feedback_id TO james_feedback_id;
+ALTER TABLE james_feedback_coach_allow RENAME COLUMN feedback_id TO james_feedback_id;

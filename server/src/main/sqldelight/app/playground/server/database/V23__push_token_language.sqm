@@ -1,0 +1,6 @@
+ALTER TABLE coach_push_fcm ADD COLUMN language character varying(36) NOT NULL DEFAULT 'de-DE';
+ALTER TABLE coach_push_aps ADD COLUMN language character varying(36) NOT NULL DEFAULT 'de-DE';
+ALTER TABLE coachee_push_fcm ADD COLUMN language character varying(36) NOT NULL DEFAULT 'de-DE';
+ALTER TABLE coachee_push_aps ADD COLUMN language character varying(36) NOT NULL DEFAULT 'de-DE';
+ALTER TABLE mandator_push_fcm ADD COLUMN language character varying(36) NOT NULL DEFAULT 'de-DE';
+ALTER TABLE mandator_push_aps ADD COLUMN language character varying(36) NOT NULL DEFAULT 'de-DE';

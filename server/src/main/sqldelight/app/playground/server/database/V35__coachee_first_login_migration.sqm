@@ -1,0 +1,1 @@
+UPDATE coachee SET first_login = created WHERE creator_coach_id IS NULL AND first_login IS NULL;

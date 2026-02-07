@@ -1,0 +1,7 @@
+CREATE TABLE coach_tag_code_james_template (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  coach_id character varying(36) REFERENCES coach(id) ON DELETE CASCADE,
+  coach_tag_code_id character varying(36) REFERENCES coach_tag_code(id) ON DELETE CASCADE,
+  james_template_id character varying(36) REFERENCES james_template(id) ON DELETE CASCADE,
+  created TIMESTAMPTZ NOT NULL
+);

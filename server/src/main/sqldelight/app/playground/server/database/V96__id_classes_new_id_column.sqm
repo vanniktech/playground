@@ -1,0 +1,4 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+ALTER TABLE target_activity ADD COLUMN id character varying(36) NOT NULL DEFAULT uuid_generate_v4();
+ALTER TABLE coach_tag_coachee ADD COLUMN id character varying(36) NOT NULL DEFAULT uuid_generate_v4();
+ALTER TABLE feedback_coach_allow ADD COLUMN id character varying(36) NOT NULL DEFAULT uuid_generate_v4();

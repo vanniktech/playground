@@ -1,0 +1,6 @@
+ALTER TABLE coach_push_fcm ALTER COLUMN token SET NOT NULL;
+ALTER TABLE coach_push_aps ALTER COLUMN token SET NOT NULL;
+ALTER TABLE coachee_push_fcm ALTER COLUMN token SET NOT NULL;
+ALTER TABLE coachee_push_aps ALTER COLUMN token SET NOT NULL;
+ALTER TABLE mandator_push_fcm ALTER COLUMN token SET NOT NULL;
+ALTER TABLE mandator_push_aps ALTER COLUMN token SET NOT NULL;

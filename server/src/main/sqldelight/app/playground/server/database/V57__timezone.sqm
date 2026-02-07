@@ -1,0 +1,3 @@
+ALTER TABLE coach ADD COLUMN time_zone character varying(64) NOT NULL DEFAULT 'Europe/Berlin';
+ALTER TABLE coachee ADD COLUMN time_zone character varying(64) NOT NULL DEFAULT 'Europe/Berlin';
+ALTER TABLE mandator ADD COLUMN time_zone character varying(64) NOT NULL DEFAULT 'Europe/Berlin';

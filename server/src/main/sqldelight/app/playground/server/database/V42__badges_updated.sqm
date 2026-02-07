@@ -1,0 +1,14 @@
+-- BeCoach badge for Niklas accounts.
+UPDATE coachee SET updated = NOW() WHERE id IN ('d8529e4f-0af8-488d-8e2d-ac15b18888bb', '25685688-f24e-4be9-a3d6-4a44fe08f12c', '338f7ee9-b733-4cf1-94de-a9763ac53e80');
+UPDATE coach SET updated = NOW() WHERE login IN ('8f5f3ffb-0f5a-4173-9d9c-af71fe0a7501', 'f6b5c91e-0861-441c-8cf3-aba41cce6735', '9217296c-644e-4122-afe0-8bb57b8bccc1');
+
+-- Verified badge for empty accounts.
+UPDATE coachee SET updated = NOW() WHERE id IN ('7bacebfc-1562-4763-95ef-8553ff3309e2', '4e937610-7a29-42f1-bbf4-6fb67c256a53', 'c2d34aad-f718-4b9f-8ab6-f119da5e36ad', '003b61be-6646-454e-a7ff-b4c845106578', 'f160bf36-52af-4894-a508-2ed416014e1f');
+UPDATE coach SET updated = NOW() WHERE id IN ('1b680ad6-4657-4abb-9085-49ac2a26778c', '1e8a0303-9a82-4632-aab9-6e7019f415a5', 'e55e7ab4-b53e-4cfe-8635-0435a4807f5e', '145662a4-6023-49a9-bf42-0d4708bcf888');
+
+-- BeCoach badge.
+UPDATE coachee SET updated = NOW() WHERE login IN ('fabio.wenzing+coachee@gmail.com', 'vincent.oswald@hotmail.de', 'niklas.baudy+live-coachee@familo.net');
+UPDATE coach SET updated = NOW() WHERE login IN ('fabio.wenzing+coach@gmail.com', 'vince@fpc.team', 'niklas.baudy+live-coach@familo.net');
+
+-- Verified badge.
+UPDATE coach SET updated = NOW() WHERE login IN ('50hacks@becoach.app', 'info@one-medical.de', 'daniel.glaeser@subjectresoul.com');

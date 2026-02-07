@@ -1,0 +1,7 @@
+ALTER TABLE mandator ADD COLUMN name character varying(255) NOT NULL DEFAULT '';
+
+UPDATE mandator SET name = 'Niklas' WHERE id = '00000000-3cbb-488f-bba8-2246c8804711';
+UPDATE mandator SET name = 'Vince' WHERE id = '11111111-ee5d-2374-8e02-a75cb9abbacb';
+UPDATE mandator SET name = 'Fabio' WHERE id = '22222222-d0f5-4bd7-8e82-ff442f326f88';
+
+ALTER TABLE mandator ALTER COLUMN name DROP DEFAULT;

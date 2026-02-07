@@ -1,0 +1,2 @@
+ALTER TABLE james_session ADD COLUMN version bigint NOT NULL DEFAULT 1;
+ALTER TABLE james_template ADD COLUMN version bigint NOT NULL DEFAULT 1;

@@ -1,0 +1,174 @@
+-- ActivityWeek#id
+ALTER TABLE activity_week ALTER COLUMN id TYPE uuid USING id::uuid;
+
+-- Activity#id
+ALTER TABLE activity_coach DROP CONSTRAINT activity_coach_activity_id_fkey;
+ALTER TABLE activity_week DROP CONSTRAINT activity_week_activity_id_fkey;
+ALTER TABLE target_activity DROP CONSTRAINT target_activity_activity_id_fkey;
+ALTER TABLE activity ALTER COLUMN id TYPE uuid USING id::uuid;
+ALTER TABLE activity_coach ALTER COLUMN activity_id TYPE uuid USING activity_id::uuid;
+ALTER TABLE activity_week ALTER COLUMN activity_id TYPE uuid USING activity_id::uuid;
+ALTER TABLE target_activity ALTER COLUMN activity_id TYPE uuid USING activity_id::uuid;
+ALTER TABLE activity_coach ADD CONSTRAINT activity_coach_activity_id_fkey FOREIGN KEY (activity_id) REFERENCES activity(id) ON DELETE CASCADE;
+ALTER TABLE activity_week ADD CONSTRAINT activity_week_activity_id_fkey FOREIGN KEY (activity_id) REFERENCES activity(id) ON DELETE CASCADE;
+ALTER TABLE target_activity ADD CONSTRAINT target_activity_activity_id_fkey FOREIGN KEY (activity_id) REFERENCES activity(id) ON DELETE CASCADE;
+
+-- ActivityCoach#id
+ALTER TABLE activity_coach ALTER COLUMN id TYPE uuid USING id::uuid;
+
+-- TargetActivity#id
+ALTER TABLE target_activity ALTER COLUMN id TYPE uuid USING id::uuid;
+
+-- Target#id
+ALTER TABLE target_activity DROP CONSTRAINT target_activity_target_id_fkey;
+ALTER TABLE target_activity ALTER COLUMN target_id TYPE uuid USING target_id::uuid;
+ALTER TABLE target ALTER COLUMN id TYPE uuid USING id::uuid;
+ALTER TABLE target_activity ADD CONSTRAINT target_activity_target_id_fkey FOREIGN KEY (target_id) REFERENCES target(id) ON DELETE CASCADE;
+
+-- Notification.
+ALTER TABLE notification.super_admin_notification_group ALTER COLUMN id TYPE uuid USING id::uuid;
+ALTER TABLE notification.mandator_notification_group ALTER COLUMN id TYPE uuid USING id::uuid;
+ALTER TABLE notification.coach_notification_group ALTER COLUMN id TYPE uuid USING id::uuid;
+ALTER TABLE notification.coachee_notification_group ALTER COLUMN id TYPE uuid USING id::uuid;
+
+-- James Template Database.
+ALTER TABLE james_template_database_coach ALTER COLUMN id TYPE uuid USING id::uuid;
+
+ALTER TABLE james_template_database_element_video DROP CONSTRAINT james_template_database_elem_james_template_database_elem_fkey1;
+ALTER TABLE james_template_database_element_file DROP CONSTRAINT james_template_database_elem_james_template_database_elem_fkey2;
+ALTER TABLE james_template_database_element_image DROP CONSTRAINT james_template_database_eleme_james_template_database_elem_fkey;
+ALTER TABLE james_template_database_meta_data_image DROP CONSTRAINT james_template_database_meta__james_template_database_meta_fkey;
+ALTER TABLE james_template_database_meta_data_file DROP CONSTRAINT james_template_database_meta_james_template_database_meta_fkey2;
+ALTER TABLE james_template_database_meta_data_video DROP CONSTRAINT james_template_database_meta_james_template_database_meta_fkey1;
+ALTER TABLE james_template DROP CONSTRAINT james_template_james_template_database_id_fkey;
+ALTER TABLE james_template DROP CONSTRAINT james_template_james_template_database_meta_data_id_fkey;
+ALTER TABLE james_template_database_coach DROP CONSTRAINT james_template_database_coach_james_template_database_id_fkey;
+ALTER TABLE james_template_database_element DROP CONSTRAINT james_template_database_element_id_fkey;
+ALTER TABLE james_template_database_meta_data DROP CONSTRAINT james_template_database_meta_da_james_template_database_id_fkey;
+
+ALTER TABLE james_template_database_element_video ALTER COLUMN james_template_database_element_id TYPE uuid USING james_template_database_element_id::uuid;
+ALTER TABLE james_template_database_element_file ALTER COLUMN james_template_database_element_id TYPE uuid USING james_template_database_element_id::uuid;
+ALTER TABLE james_template_database_element_image ALTER COLUMN james_template_database_element_id TYPE uuid USING james_template_database_element_id::uuid;
+ALTER TABLE james_template_database_meta_data_video ALTER COLUMN james_template_database_meta_data_id TYPE uuid USING james_template_database_meta_data_id::uuid;
+ALTER TABLE james_template_database_meta_data_file ALTER COLUMN james_template_database_meta_data_id TYPE uuid USING james_template_database_meta_data_id::uuid;
+ALTER TABLE james_template_database_meta_data_image ALTER COLUMN james_template_database_meta_data_id TYPE uuid USING james_template_database_meta_data_id::uuid;
+ALTER TABLE james_template ALTER COLUMN james_template_database_id TYPE uuid USING james_template_database_id::uuid;
+ALTER TABLE james_template ALTER COLUMN james_template_database_meta_data_id TYPE uuid USING james_template_database_meta_data_id::uuid;
+ALTER TABLE james_template_database_coach ALTER COLUMN james_template_database_id TYPE uuid USING james_template_database_id::uuid;
+ALTER TABLE james_template_database_meta_data ALTER COLUMN james_template_database_id TYPE uuid USING james_template_database_id::uuid;
+ALTER TABLE james_template_database_element ALTER COLUMN id TYPE uuid USING id::uuid;
+ALTER TABLE james_template_database_meta_data ALTER COLUMN id TYPE uuid USING id::uuid;
+ALTER TABLE james_template_database ALTER COLUMN id TYPE uuid USING id::uuid;
+
+ALTER TABLE james_template_database_element_video ADD CONSTRAINT james_template_database_elem_james_template_database_elem_fkey1 FOREIGN KEY (james_template_database_element_id) REFERENCES james_template_database_element(id) ON DELETE CASCADE;
+ALTER TABLE james_template_database_element_file ADD CONSTRAINT james_template_database_elem_james_template_database_elem_fkey2 FOREIGN KEY (james_template_database_element_id) REFERENCES james_template_database_element(id) ON DELETE CASCADE;
+ALTER TABLE james_template_database_element_image ADD CONSTRAINT james_template_database_eleme_james_template_database_elem_fkey FOREIGN KEY (james_template_database_element_id) REFERENCES james_template_database_element(id) ON DELETE CASCADE;
+ALTER TABLE james_template_database_meta_data_image ADD CONSTRAINT james_template_database_meta__james_template_database_meta_fkey FOREIGN KEY (james_template_database_meta_data_id) REFERENCES james_template_database_meta_data(id) ON DELETE CASCADE;
+ALTER TABLE james_template_database_meta_data_file ADD CONSTRAINT james_template_database_meta_james_template_database_meta_fkey2 FOREIGN KEY (james_template_database_meta_data_id) REFERENCES james_template_database_meta_data(id) ON DELETE CASCADE;
+ALTER TABLE james_template_database_meta_data_video ADD CONSTRAINT james_template_database_meta_james_template_database_meta_fkey1 FOREIGN KEY (james_template_database_meta_data_id) REFERENCES james_template_database_meta_data(id) ON DELETE CASCADE;
+ALTER TABLE james_template ADD CONSTRAINT james_template_james_template_database_id_fkey FOREIGN KEY (james_template_database_id) REFERENCES james_template_database(id) ON DELETE SET NULL;
+ALTER TABLE james_template ADD CONSTRAINT james_template_james_template_database_meta_data_id_fkey FOREIGN KEY (james_template_database_meta_data_id) REFERENCES james_template_database_meta_data(id) ON DELETE SET NULL;
+ALTER TABLE james_template_database_coach ADD CONSTRAINT james_template_database_coach_james_template_database_id_fkey FOREIGN KEY (james_template_database_id) REFERENCES james_template_database(id) ON DELETE CASCADE;
+ALTER TABLE james_template_database_element ADD CONSTRAINT james_template_database_element_id_fkey FOREIGN KEY (id) REFERENCES james_template_database_meta_data(id) ON DELETE CASCADE;
+ALTER TABLE james_template_database_meta_data ADD CONSTRAINT james_template_database_meta_da_james_template_database_id_fkey FOREIGN KEY (james_template_database_id) REFERENCES james_template_database(id) ON DELETE CASCADE;
+
+-- TargetActivity#id
+ALTER TABLE super_admin DROP CONSTRAINT super_admin_branding_id_fkey;
+ALTER TABLE mandator DROP CONSTRAINT mandator_branding_id_fkey;
+ALTER TABLE coach DROP CONSTRAINT coach_branding_id_fkey;
+ALTER TABLE coachee DROP CONSTRAINT coachee_branding_id_fkey;
+
+ALTER TABLE super_admin ALTER COLUMN branding_id TYPE uuid USING branding_id::uuid;
+ALTER TABLE mandator ALTER COLUMN branding_id TYPE uuid USING branding_id::uuid;
+ALTER TABLE coach ALTER COLUMN branding_id TYPE uuid USING branding_id::uuid;
+ALTER TABLE coachee ALTER COLUMN branding_id TYPE uuid USING branding_id::uuid;
+ALTER TABLE branding ALTER COLUMN id TYPE uuid USING id::uuid;
+
+ALTER TABLE super_admin ADD CONSTRAINT super_admin_branding_id_fkey FOREIGN KEY (branding_id) REFERENCES branding(id) ON DELETE SET NULL;
+ALTER TABLE mandator ADD CONSTRAINT mandator_branding_id_fkey FOREIGN KEY (branding_id) REFERENCES branding(id) ON DELETE SET NULL;
+ALTER TABLE coach ADD CONSTRAINT coach_branding_id_fkey FOREIGN KEY (branding_id) REFERENCES branding(id) ON DELETE SET NULL;
+ALTER TABLE coachee ADD CONSTRAINT coachee_branding_id_fkey FOREIGN KEY (branding_id) REFERENCES branding(id) ON DELETE SET NULL;
+
+-- ChatEntryWebSocketQueue#id
+ALTER TABLE chat_entry_web_socket_queue ALTER COLUMN id TYPE uuid USING id::uuid;
+
+-- ChatEntry#id
+ALTER TABLE chat_entry_web_socket_queue DROP CONSTRAINT chat_entry_web_socket_queue_chat_entry_id_fkey;
+ALTER TABLE chat_entry_web_socket_queue ALTER COLUMN chat_entry_id TYPE uuid USING chat_entry_id::uuid;
+ALTER TABLE chat_entry ALTER COLUMN id TYPE uuid USING id::uuid;
+ALTER TABLE chat_entry_web_socket_queue ADD CONSTRAINT chat_entry_web_socket_queue_chat_entry_id_fkey FOREIGN KEY (chat_entry_id) REFERENCES chat_entry(id) ON DELETE CASCADE;
+
+-- Chat#id
+ALTER TABLE james_journey_session DROP CONSTRAINT james_journey_session_chat_id_fkey;
+ALTER TABLE chat_entry DROP CONSTRAINT chat_history_chat_id_fkey;
+ALTER TABLE james_journey_session_entry DROP CONSTRAINT james_journey_session_entry_chat_id_fkey;
+ALTER TABLE james_session DROP CONSTRAINT james_session_chat_id_fkey;
+ALTER TABLE chat_file DROP CONSTRAINT chat_file_chat_id_fkey;
+ALTER TABLE chat_image DROP CONSTRAINT chat_image_chat_id_fkey;
+ALTER TABLE chat_video DROP CONSTRAINT chat_video_chat_id_fkey;
+ALTER TABLE chat_mail_history DROP CONSTRAINT chat_mail_history_chat_id_fkey;
+
+ALTER TABLE james_journey_session ALTER COLUMN chat_id TYPE uuid USING chat_id::uuid;
+ALTER TABLE chat_entry ALTER COLUMN chat_id TYPE uuid USING chat_id::uuid;
+ALTER TABLE james_journey_session_entry ALTER COLUMN chat_id TYPE uuid USING chat_id::uuid;
+ALTER TABLE james_session ALTER COLUMN chat_id TYPE uuid USING chat_id::uuid;
+ALTER TABLE chat_file ALTER COLUMN chat_id TYPE uuid USING chat_id::uuid;
+ALTER TABLE chat_image ALTER COLUMN chat_id TYPE uuid USING chat_id::uuid;
+ALTER TABLE chat_video ALTER COLUMN chat_id TYPE uuid USING chat_id::uuid;
+ALTER TABLE chat_mail_history ALTER COLUMN chat_id TYPE uuid USING chat_id::uuid;
+ALTER TABLE chat ALTER COLUMN id TYPE uuid USING id::uuid;
+
+ALTER TABLE james_journey_session ADD CONSTRAINT james_journey_session_chat_id_fkey FOREIGN KEY (chat_id) REFERENCES chat(id) ON DELETE CASCADE;
+ALTER TABLE chat_entry ADD CONSTRAINT chat_history_chat_id_fkey FOREIGN KEY (chat_id) REFERENCES chat(id) ON DELETE CASCADE;
+ALTER TABLE james_journey_session_entry ADD CONSTRAINT james_journey_session_entry_chat_id_fkey FOREIGN KEY (chat_id) REFERENCES chat(id) ON DELETE CASCADE;
+ALTER TABLE james_session ADD CONSTRAINT james_session_chat_id_fkey FOREIGN KEY (chat_id) REFERENCES chat(id) ON DELETE CASCADE;
+ALTER TABLE chat_file ADD CONSTRAINT chat_file_chat_id_fkey FOREIGN KEY (chat_id) REFERENCES chat(id) ON DELETE CASCADE;
+ALTER TABLE chat_image ADD CONSTRAINT chat_image_chat_id_fkey FOREIGN KEY (chat_id) REFERENCES chat(id) ON DELETE CASCADE;
+ALTER TABLE chat_video ADD CONSTRAINT chat_video_chat_id_fkey FOREIGN KEY (chat_id) REFERENCES chat(id) ON DELETE CASCADE;
+ALTER TABLE chat_mail_history ADD CONSTRAINT chat_mail_history_chat_id_fkey FOREIGN KEY (chat_id) REFERENCES chat(id) ON DELETE CASCADE;
+
+-- ChatMailHistory#id
+ALTER TABLE chat_mail_history ALTER COLUMN id TYPE uuid USING id::uuid;
+
+-- JamesSession#id
+ALTER TABLE james_session_file DROP CONSTRAINT james_session_file_james_session_id_fkey;
+ALTER TABLE james_session_image DROP CONSTRAINT james_session_image_james_session_id_fkey;
+ALTER TABLE james_session_video DROP CONSTRAINT james_session_video_james_session_id_fkey;
+ALTER TABLE chat_entry DROP CONSTRAINT chat_entry_james_session_id_fkey;
+
+ALTER TABLE james_session_file ALTER COLUMN james_session_id TYPE uuid USING james_session_id::uuid;
+ALTER TABLE james_session_image ALTER COLUMN james_session_id TYPE uuid USING james_session_id::uuid;
+ALTER TABLE james_session_video ALTER COLUMN james_session_id TYPE uuid USING james_session_id::uuid;
+ALTER TABLE chat_entry ALTER COLUMN james_session_id TYPE uuid USING james_session_id::uuid;
+ALTER TABLE james_session ALTER COLUMN id TYPE uuid USING id::uuid;
+
+ALTER TABLE james_session_file ADD CONSTRAINT james_session_file_james_session_id_fkey FOREIGN KEY (james_session_id) REFERENCES james_session(id) ON DELETE CASCADE;
+ALTER TABLE james_session_image ADD CONSTRAINT james_session_image_james_session_id_fkey FOREIGN KEY (james_session_id) REFERENCES james_session(id) ON DELETE CASCADE;
+ALTER TABLE james_session_video ADD CONSTRAINT james_session_video_james_session_id_fkey FOREIGN KEY (james_session_id) REFERENCES james_session(id) ON DELETE CASCADE;
+ALTER TABLE chat_entry ADD CONSTRAINT chat_entry_james_session_id_fkey FOREIGN KEY (james_session_id) REFERENCES james_session(id) ON DELETE SET NULL;
+
+-- JamesJourney#id
+ALTER TABLE james_journey_entry DROP CONSTRAINT james_journey_entry_james_journey_id_fkey;
+ALTER TABLE james_journey_session DROP CONSTRAINT james_journey_session_james_journey_id_fkey;
+
+ALTER TABLE james_journey_entry ALTER COLUMN james_journey_id TYPE uuid USING james_journey_id::uuid;
+ALTER TABLE james_journey_session ALTER COLUMN james_journey_id TYPE uuid USING james_journey_id::uuid;
+ALTER TABLE james_journey ALTER COLUMN id TYPE uuid USING id::uuid;
+
+ALTER TABLE james_journey_entry ADD CONSTRAINT james_journey_entry_james_journey_id_fkey FOREIGN KEY (james_journey_id) REFERENCES james_journey(id) ON DELETE CASCADE;
+ALTER TABLE james_journey_session ADD CONSTRAINT james_journey_session_james_journey_id_fkey FOREIGN KEY (james_journey_id) REFERENCES james_journey(id) ON DELETE CASCADE;
+
+-- JamesJourneySession#id
+ALTER TABLE james_journey_session_entry DROP CONSTRAINT james_journey_session_entry_james_journey_session_id_fkey;
+ALTER TABLE james_journey_session_entry ALTER COLUMN james_journey_session_id TYPE uuid USING james_journey_session_id::uuid;
+ALTER TABLE james_journey_session ALTER COLUMN id TYPE uuid USING id::uuid;
+ALTER TABLE james_journey_session_entry ADD CONSTRAINT james_journey_session_entry_james_journey_session_id_fkey FOREIGN KEY (james_journey_session_id) REFERENCES james_journey_session(id) ON DELETE CASCADE;
+
+-- JamesJourneySessionEntry#id
+ALTER TABLE james_journey_session_entry ALTER COLUMN id TYPE uuid USING id::uuid;
+
+-- JamesJourneyEntry#id
+ALTER TABLE james_journey_session_entry DROP CONSTRAINT james_journey_session_entry_james_journey_entry_id_fkey;
+ALTER TABLE james_journey_session_entry ALTER COLUMN james_journey_entry_id TYPE uuid USING james_journey_entry_id::uuid;
+ALTER TABLE james_journey_entry ALTER COLUMN id TYPE uuid USING id::uuid;
+ALTER TABLE james_journey_session_entry ADD CONSTRAINT james_journey_session_entry_james_journey_entry_id_fkey FOREIGN KEY (james_journey_entry_id) REFERENCES james_journey_entry(id) ON DELETE CASCADE;

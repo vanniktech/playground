@@ -1,0 +1,15 @@
+CREATE TABLE super_admin_push_fcm (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  token character varying(512) NOT NULL,
+  super_admin_id character varying(36) NOT NULL,
+  device_id character varying(36) NOT NULL,
+  FOREIGN KEY (super_admin_id) REFERENCES super_admin(id) ON DELETE CASCADE
+);
+
+CREATE TABLE super_admin_push_aps (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  token character varying(512) NOT NULL,
+  super_admin_id character varying(36) NOT NULL,
+  device_id character varying(36) NOT NULL,
+  FOREIGN KEY (super_admin_id) REFERENCES super_admin(id) ON DELETE CASCADE
+);

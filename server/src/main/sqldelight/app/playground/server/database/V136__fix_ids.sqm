@@ -1,0 +1,12 @@
+-- Cleanup.
+
+-- Fix types.
+ALTER TABLE coach_coachee ALTER COLUMN id TYPE varchar(36);
+ALTER TABLE chat ALTER COLUMN id TYPE varchar(36);
+ALTER TABLE chat ALTER COLUMN coach_id TYPE varchar(36);
+ALTER TABLE chat ALTER COLUMN coachee_id TYPE varchar(36);
+ALTER TABLE chat_entry ALTER COLUMN id TYPE varchar(36);
+ALTER TABLE chat_entry ALTER COLUMN chat_id TYPE varchar(36);
+ALTER TABLE chat_entry ALTER COLUMN sender TYPE varchar(36);
+ALTER TABLE chat_entry_web_socket_queue ALTER COLUMN id TYPE varchar(36);
+ALTER TABLE chat_entry_web_socket_queue ALTER COLUMN chat_entry_id TYPE varchar(36);

@@ -1,0 +1,6 @@
+ALTER TABLE super_admin ADD COLUMN badge integer;
+ALTER TABLE mandator ADD COLUMN badge integer;
+
+-- BeCoach badge.
+UPDATE super_admin SET updated = now(), badge = 1;
+UPDATE mandator SET updated = now(), badge = 1 WHERE id IN ('33333333-3cbb-488f-bba8-2246c8804711', '00000000-3cbb-488f-bba8-2246c8804711');

@@ -1,0 +1,10 @@
+CREATE TABLE chat_mail_history (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  chat_id character varying(36) NOT NULL,
+  local_date integer NOT NULL,
+  coach_id character varying(36),
+  coachee_id character varying(36),
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE,
+  FOREIGN KEY (coachee_id) REFERENCES coachee(id) ON DELETE CASCADE,
+  FOREIGN KEY (chat_id) REFERENCES chat(id) ON DELETE CASCADE
+);

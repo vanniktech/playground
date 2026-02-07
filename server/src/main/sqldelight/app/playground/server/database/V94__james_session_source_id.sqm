@@ -1,0 +1,4 @@
+-- At the time of performing this migration, the source id will always be a James Template Id.
+-- This might change though, also when deleting a James Template the James Session will stay.
+-- Hence there's no reference or foreign key.
+ALTER TABLE james_session ADD COLUMN source_id character varying(36);

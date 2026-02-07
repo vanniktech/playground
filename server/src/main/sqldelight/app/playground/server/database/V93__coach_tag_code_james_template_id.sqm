@@ -1,0 +1,1 @@
+ALTER TABLE coach_tag_code ADD COLUMN james_template_id character varying(36) REFERENCES james_template(id) ON DELETE SET NULL;

@@ -1,0 +1,2 @@
+UPDATE coachee SET last_name = 'Wenzing' WHERE  id = '22222222-d0f5-4bd7-8e82-ff442f326f88';
+UPDATE coach SET last_name = 'Wenzing' WHERE  id = '22222222-d0f5-4bd7-8e82-ff442f326f88';

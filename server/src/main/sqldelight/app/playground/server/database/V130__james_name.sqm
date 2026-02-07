@@ -1,0 +1,3 @@
+ALTER TABLE james_template ALTER COLUMN name SET DEFAULT '';
+ALTER TABLE james_session ALTER COLUMN name SET DEFAULT '';
+ALTER TABLE james_feedback ALTER COLUMN name SET DEFAULT '';

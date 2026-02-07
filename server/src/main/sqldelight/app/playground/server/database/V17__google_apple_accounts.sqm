@@ -1,0 +1,33 @@
+INSERT INTO mandator(id, created, updated, login, is_mandator_admin, creator_super_admin_id, name) VALUES ('3f171a24-c163-435b-a86c-985c30d2f416', '2020-04-28 18:00:00', '2020-04-28 18:00:00', 'applereview+mandator@becoach.app', TRUE, '00000000-3cbb-488f-bba8-2246c8804711', 'Apple');
+INSERT INTO coach(id, created, updated, code_prefix, login, creator_mandator_id, first_name, last_name, phone, info, image) VALUES ('9511a065-e1a1-4698-a96a-ef00d3759433', '2020-04-28 18:00:00', '2020-04-28 18:00:00', 'APPL', 'applereview+coach@becoach.app', '3f171a24-c163-435b-a86c-985c30d2f416', 'Apple', 'Coach', NULL, NULL, NULL);
+INSERT INTO coachee(id, created, updated, first_name, gender, last_name, login, phone) VALUES ('54e52e8e-58d6-4d0c-b4cd-89778f9798da', '2020-04-28 18:00:00', '2020-04-28 18:00:00', 'Apple', NULL, 'Coachee', 'applereview+coachee@becoach.app', NULL);
+
+INSERT INTO mandator(id, created, updated, login, is_mandator_admin, creator_super_admin_id, name) VALUES ('5e64c874-d82e-48ec-98a0-c67aefd7a48c', '2020-04-28 18:00:00', '2020-04-28 18:00:00', 'googlereview+mandator@becoach.app', TRUE, '00000000-3cbb-488f-bba8-2246c8804711', 'Google');
+INSERT INTO coach(id, created, updated, code_prefix, login, creator_mandator_id, first_name, last_name, phone, info, image) VALUES ('27c57141-4984-46db-acb1-df04081a52f3', '2020-04-28 18:00:00', '2020-04-28 18:00:00', 'GOOG', 'googlereview+coach@becoach.app', '5e64c874-d82e-48ec-98a0-c67aefd7a48c', 'Google', 'Coach', NULL, NULL, NULL);
+INSERT INTO coachee(id, created, updated, first_name, gender, last_name, login, phone) VALUES ('544f7132-c528-4107-8c89-fefaf3d9fce4', '2020-04-28 18:00:00', '2020-04-28 18:00:00', 'Google', NULL, 'Coachee', 'googlereview+coachee@becoach.app', NULL);
+
+INSERT INTO chat VALUES ('69ef0af3-1665-4152-9f68-bba407b18557', '2020-04-28 18:00:00', '2020-04-28 18:00:00', '9511a065-e1a1-4698-a96a-ef00d3759433', '54e52e8e-58d6-4d0c-b4cd-89778f9798da');
+
+INSERT INTO coach_coachee VALUES ('deb37c06-671d-4ff3-870a-4fb5a53c07d1', 'APPL0000', '9511a065-e1a1-4698-a96a-ef00d3759433', '54e52e8e-58d6-4d0c-b4cd-89778f9798da', '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('d6b60274-f3df-4195-9fda-9efa012c3059', 'APPL0001', '9511a065-e1a1-4698-a96a-ef00d3759433', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('af46b090-c6ca-4026-9c53-d1da62bd3991', 'APPL0002', '9511a065-e1a1-4698-a96a-ef00d3759433', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('1f619731-6081-4234-9e8a-51899d93e77d', 'APPL0003', '9511a065-e1a1-4698-a96a-ef00d3759433', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('ccce0714-cde0-4065-b4c0-abe61497f147', 'APPL0004', '9511a065-e1a1-4698-a96a-ef00d3759433', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('4e1033be-f2ca-46e8-a370-7a51fd2ad700', 'APPL0005', '9511a065-e1a1-4698-a96a-ef00d3759433', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('46f0df34-70ae-4291-a410-a5302874ebef', 'APPL0006', '9511a065-e1a1-4698-a96a-ef00d3759433', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('1f366095-8a0d-4ffa-8dfa-a2526573bae0', 'APPL0007', '9511a065-e1a1-4698-a96a-ef00d3759433', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('d88e8c06-3c86-4ef8-b84d-30e367b9dac9', 'APPL0008', '9511a065-e1a1-4698-a96a-ef00d3759433', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('d0fdebe3-b70b-4e91-a62b-d2f5e9fe4b32', 'APPL0009', '9511a065-e1a1-4698-a96a-ef00d3759433', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+
+INSERT INTO chat VALUES ('16fc8c75-1ea0-4324-b745-c4e13dccfe61', '2020-04-28 18:00:00', '2020-04-28 18:00:00', '27c57141-4984-46db-acb1-df04081a52f3', '544f7132-c528-4107-8c89-fefaf3d9fce4');
+
+INSERT INTO coach_coachee VALUES ('52ac860f-015b-4f5d-ad98-4d5e724f7545', 'GOOG0000', '27c57141-4984-46db-acb1-df04081a52f3', '544f7132-c528-4107-8c89-fefaf3d9fce4', '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('6c6051e7-4994-4c6e-8bcc-82bc2a73ed6b', 'GOOG0001', '27c57141-4984-46db-acb1-df04081a52f3', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('283fe66d-4526-44a5-8f7f-d51eb2fc86f0', 'GOOG0002', '27c57141-4984-46db-acb1-df04081a52f3', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('f24995fd-0059-46e9-b044-04c11f2dc094', 'GOOG0003', '27c57141-4984-46db-acb1-df04081a52f3', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('10c62b2e-6fc0-4f0e-8b3f-a76e40f1f682', 'GOOG0004', '27c57141-4984-46db-acb1-df04081a52f3', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('94a4da15-d3dc-4281-bfec-539f1c433c37', 'GOOG0005', '27c57141-4984-46db-acb1-df04081a52f3', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('e0bc859c-29cf-4734-b816-6586d5fe2a8f', 'GOOG0006', '27c57141-4984-46db-acb1-df04081a52f3', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('a5ef713e-3a9f-4aa8-8b5b-5001e888db5b', 'GOOG0007', '27c57141-4984-46db-acb1-df04081a52f3', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('2408a609-8526-4f6b-882a-18caeb3c3dbc', 'GOOG0008', '27c57141-4984-46db-acb1-df04081a52f3', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');
+INSERT INTO coach_coachee VALUES ('7230e566-857b-489c-9dff-8c74d7c33e06', 'GOOG0009', '27c57141-4984-46db-acb1-df04081a52f3', NULL, '2020-04-28 18:00:00', '2020-04-28 18:00:00');

@@ -1,0 +1,7 @@
+-- We're dropping the constraints for a coachee:
+-- creator_mandator_id
+-- creator_coach_id
+-- That way, we can still reference an id, even though the source might have been deleted.
+-- This is needed in order to delete coachee after X days.
+ALTER TABLE coachee DROP CONSTRAINT IF EXISTS coachee_creator_coach_id_fkey;
+ALTER TABLE coachee DROP CONSTRAINT IF EXISTS coachee_creator_mandator_id_fkey;

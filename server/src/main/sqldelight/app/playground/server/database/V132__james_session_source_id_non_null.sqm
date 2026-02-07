@@ -1,0 +1,1 @@
+ALTER TABLE james_session ALTER COLUMN source_id SET NOT NULL;

@@ -1,0 +1,11 @@
+ALTER TABLE target_activity ALTER COLUMN id DROP DEFAULT;
+ALTER TABLE coach_tag_coachee ALTER COLUMN id DROP DEFAULT;
+ALTER TABLE feedback_coach_allow ALTER COLUMN id DROP DEFAULT;
+
+ALTER TABLE target_activity DROP CONSTRAINT IF EXISTS target_activity_pkey;
+ALTER TABLE coach_tag_coachee DROP CONSTRAINT IF EXISTS coach_tag_coachee_pkey;
+ALTER TABLE feedback_coach_allow DROP CONSTRAINT IF EXISTS feedback_coach_allow_pkey;
+
+ALTER TABLE target_activity ADD CONSTRAINT target_activity_pkey PRIMARY KEY ('id');
+ALTER TABLE coach_tag_coachee ADD CONSTRAINT coach_tag_coachee_pkey PRIMARY KEY ('id');
+ALTER TABLE feedback_coach_allow ADD CONSTRAINT feedback_coach_allow_pkey PRIMARY KEY ('id');

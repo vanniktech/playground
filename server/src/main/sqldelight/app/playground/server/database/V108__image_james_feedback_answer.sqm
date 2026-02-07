@@ -1,0 +1,7 @@
+CREATE TABLE james_feedback_answer_image (
+  image_id character varying(36) NOT NULL,
+  james_feedback_answer_id character varying(36) NOT NULL,
+  FOREIGN KEY (image_id) REFERENCES image(id),
+  FOREIGN KEY (james_feedback_answer_id) REFERENCES james_feedback_answer(id) ON DELETE CASCADE,
+  PRIMARY KEY (image_id, james_feedback_answer_id)
+);

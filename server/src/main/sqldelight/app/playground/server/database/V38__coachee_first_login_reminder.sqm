@@ -1,0 +1,1 @@
+ALTER TABLE coachee ADD COLUMN first_login_reminder TIMESTAMP WITHOUT TIME ZONE;

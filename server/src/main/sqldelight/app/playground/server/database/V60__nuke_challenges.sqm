@@ -1,0 +1,4 @@
+DELETE FROM target_challenge;
+DELETE FROM challenge;
+DELETE FROM week;
+DELETE FROM event;

@@ -1,0 +1,1 @@
+UPDATE mandator SET creator_super_admin_id = '44444444-3cbb-488f-bba8-2246c8804711', updated = now() WHERE id = '33333333-3cbb-488f-bba8-2246c8804711';

@@ -1,0 +1,3 @@
+INSERT INTO chat VALUES ('1e59cd36-f37a-4ca4-900d-638fdf8a56c0', '2020-08-30 18:00:00', '2020-08-30 18:00:00', 'ecdd6b3b-98bd-496a-9860-b7a9dc9643c5', '6f73ebfe-ee71-46a6-a975-28d41b35d472');
+
+UPDATE coach_coachee SET coachee_id = '6f73ebfe-ee71-46a6-a975-28d41b35d472' WHERE id = '19cefecb-ae1a-457c-9f8f-c54396e89b77';

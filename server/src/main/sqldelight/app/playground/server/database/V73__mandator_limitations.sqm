@@ -1,0 +1,26 @@
+ALTER TABLE mandator ADD COLUMN max_codes int;
+ALTER TABLE mandator ADD COLUMN max_coaches int;
+ALTER TABLE mandator ADD COLUMN max_coachees int;
+
+-- Special treat our Account. It's unlimited.
+UPDATE mandator SET
+  max_codes = -1,
+  max_coaches = -1,
+  max_coachees = -1
+  WHERE login = 'hello@belabs.de';
+
+-- My account.
+UPDATE mandator SET
+  max_codes = 500,
+  max_coaches = 50,
+  max_coachees = 100
+  WHERE login = 'niklas.baudy@vanniktech.de';
+
+-- Update all of the rest. In reality this is only for the Review Accounts (Google + Apple).
+UPDATE mandator SET max_codes = 100 WHERE max_codes IS NULL;
+UPDATE mandator SET max_coaches = 10 WHERE max_coaches IS NULL;
+UPDATE mandator SET max_coachees = 100 WHERE max_coachees IS NULL;
+
+ALTER TABLE mandator ALTER COLUMN max_codes SET NOT NULL;
+ALTER TABLE mandator ALTER COLUMN max_coaches SET NOT NULL;
+ALTER TABLE mandator ALTER COLUMN max_coachees SET NOT NULL;

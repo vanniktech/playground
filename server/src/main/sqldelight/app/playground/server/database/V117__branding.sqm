@@ -1,0 +1,21 @@
+CREATE TABLE branding (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  name character varying(256) NOT NULL,
+  color_palette TEXT NOT NULL,
+  lottie_animation_loading_spinner TEXT,
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  creator_super_admin_id character varying(36),
+  creator_mandator_id character varying(36),
+  creator_coach_id character varying(36),
+  creator_coachee_id character varying(36),
+  FOREIGN KEY (creator_super_admin_id) REFERENCES super_admin(id) ON DELETE CASCADE,
+  FOREIGN KEY (creator_mandator_id) REFERENCES mandator(id) ON DELETE CASCADE,
+  FOREIGN KEY (creator_coach_id) REFERENCES coach(id) ON DELETE CASCADE,
+  FOREIGN KEY (creator_coachee_id) REFERENCES coachee(id) ON DELETE CASCADE
+);
+
+ALTER TABLE coach ADD COLUMN branding_id character varying(36) REFERENCES branding(id) ON DELETE SET NULL;
+ALTER TABLE coachee ADD COLUMN branding_id character varying(36) REFERENCES branding(id) ON DELETE SET NULL;
+ALTER TABLE mandator ADD COLUMN branding_id character varying(36) REFERENCES branding(id) ON DELETE SET NULL;
+ALTER TABLE super_admin ADD COLUMN branding_id character varying(36) REFERENCES branding(id) ON DELETE SET NULL;

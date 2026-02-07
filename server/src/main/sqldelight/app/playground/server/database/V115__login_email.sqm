@@ -1,0 +1,14 @@
+ALTER TABLE super_admin ADD COLUMN email character varying(255);
+ALTER TABLE mandator ADD COLUMN email character varying(255);
+ALTER TABLE coach ADD COLUMN email character varying(255);
+ALTER TABLE coachee ADD COLUMN email character varying(255);
+
+UPDATE super_admin SET email = login;
+UPDATE mandator SET email = login;
+UPDATE coach SET email = login;
+UPDATE coachee SET email = login;
+
+ALTER TABLE super_admin ALTER COLUMN email SET NOT NULL;
+ALTER TABLE mandator ALTER COLUMN email SET NOT NULL;
+ALTER TABLE coach ALTER COLUMN email SET NOT NULL;
+ALTER TABLE coachee ALTER COLUMN email SET NOT NULL;

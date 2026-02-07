@@ -1,0 +1,3 @@
+-- Drop the creator_coach_id constraint. We don't need an actual reference here.
+-- We want to have that original id in case the coach is deleted from the database.
+ALTER TABLE feedback DROP CONSTRAINT IF EXISTS feedback_creator_coach_id_fkey;

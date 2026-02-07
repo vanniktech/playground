@@ -1,0 +1,1 @@
+ALTER TABLE challenge RENAME COLUMN cancel_date TO cancelled_at;

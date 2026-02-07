@@ -1,0 +1,50 @@
+
+CREATE TABLE james_template_database (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  name character varying(64) NOT NULL,
+  creator_mandator_id character varying(36) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (creator_mandator_id) REFERENCES mandator(id) ON DELETE CASCADE
+);
+
+-- Meta Data from a James Template.
+CREATE TABLE james_template_database_meta_data (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  value TEXT NOT NULL, -- Name, description, languages etc.
+  version bigint NOT NULL,
+  james_template_database_id character varying(36) NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (james_template_database_id) REFERENCES james_template_database(id) ON DELETE CASCADE
+);
+
+-- Element from a James Template.
+CREATE TABLE james_template_database_element (
+  id character varying(36) NOT NULL PRIMARY KEY, -- This will be the same as meta_id.
+  value TEXT NOT NULL, -- All elements, including messages and keyboards.
+  FOREIGN KEY (id) REFERENCES james_template_database_meta_data(id) ON DELETE CASCADE
+);
+
+CREATE TABLE james_template_database_coach (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  coach_id character varying(36) NOT NULL,
+  james_template_database_id character varying(36) NOT NULL,
+  state int NOT NULL,
+  created TIMESTAMPTZ NOT NULL,
+  updated TIMESTAMPTZ NOT NULL,
+  FOREIGN KEY (james_template_database_id) REFERENCES james_template_database(id) ON DELETE CASCADE,
+  FOREIGN KEY (coach_id) REFERENCES coach(id) ON DELETE CASCADE
+);
+
+-- For referencing, when a James Template from a Database gets added as a james_template.
+ALTER TABLE james_template
+  ADD COLUMN james_template_database_id character varying(36)
+  REFERENCES james_template_database(id) ON DELETE SET NULL
+;
+
+-- For referencing, when a James Template from a Database gets added as a james_template.
+ALTER TABLE james_template
+  ADD COLUMN james_template_database_meta_data_id character varying(36)
+  REFERENCES james_template_database_meta_data(id) ON DELETE SET NULL
+;

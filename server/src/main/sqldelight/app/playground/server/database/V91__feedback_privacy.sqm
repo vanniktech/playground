@@ -1,0 +1,13 @@
+ALTER TABLE feedback ADD COLUMN privacy integer;
+
+UPDATE feedback
+  SET privacy = 1
+  WHERE anonymous = TRUE
+;
+
+UPDATE feedback
+  SET privacy = 0
+  WHERE anonymous = FALSE
+;
+
+ALTER TABLE feedback ALTER COLUMN privacy SET NOT NULL;

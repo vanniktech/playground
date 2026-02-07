@@ -1,0 +1,1 @@
+UPDATE coach SET badge = 2, updated = NOW() WHERE id = '40f166e1-8d86-45f9-adfa-2983d734b90d';

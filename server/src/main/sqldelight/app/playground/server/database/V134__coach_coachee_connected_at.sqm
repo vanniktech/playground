@@ -1,0 +1,1 @@
+ALTER TABLE coach_coachee ADD COLUMN connected_at TIMESTAMPTZ;

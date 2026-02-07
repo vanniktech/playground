@@ -1,0 +1,1 @@
+ALTER TABLE mandator DROP COLUMN is_mandator_admin;

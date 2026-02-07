@@ -1,0 +1,1 @@
+DELETE FROM coachee WHERE id = '33333333-3cbb-488f-bba8-2246c8804711';

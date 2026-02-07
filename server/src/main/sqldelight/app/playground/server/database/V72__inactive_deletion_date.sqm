@@ -1,0 +1,2 @@
+ALTER TABLE coach ADD COLUMN inactive_deletion_date TIMESTAMPTZ;
+ALTER TABLE coachee ADD COLUMN inactive_deletion_date TIMESTAMPTZ;

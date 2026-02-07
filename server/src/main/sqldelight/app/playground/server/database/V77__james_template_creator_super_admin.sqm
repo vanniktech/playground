@@ -1,0 +1,1 @@
+ALTER TABLE james_template DROP COLUMN creator_super_admin_id;

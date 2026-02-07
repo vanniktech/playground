@@ -1,0 +1,5 @@
+ALTER TABLE challenge ADD COLUMN cancelled_reason integer;
+ALTER TABLE target ADD COLUMN cancelled_reason integer;
+
+UPDATE challenge SET cancelled_reason = 0 WHERE cancelled_at IS NOT NULL;
+UPDATE target SET cancelled_reason = 0 WHERE cancelled_at IS NOT NULL;

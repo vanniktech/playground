@@ -1,0 +1,4 @@
+UPDATE super_admin SET login = lower(login);
+UPDATE mandator SET login = lower(login);
+UPDATE coach SET login = lower(login);
+UPDATE coachee SET login = lower(login);

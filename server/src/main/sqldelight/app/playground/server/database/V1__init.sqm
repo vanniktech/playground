@@ -1,0 +1,9 @@
+CREATE TABLE app.foo (
+  id character varying(36) NOT NULL PRIMARY KEY
+);
+
+CREATE TABLE app.bar (
+  id character varying(36) NOT NULL PRIMARY KEY,
+  creator_foo_id character varying(36) NOT NULL,
+  FOREIGN KEY (creator_foo_id) REFERENCES app.foo(id)
+);

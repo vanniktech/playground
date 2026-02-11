@@ -18,14 +18,15 @@ sqldelight = "2.2.1"
 [libraries]
 androidx-activity-compose = "androidx.activity:activity-compose:1.12.4"
 androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
-androidx-lifecycle-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
-androidx-navigation-compose = "org.jetbrains.androidx.navigation:navigation-compose:2.9.2"
+androidx-lifecycle-viewmodel-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
+androidx-navigation3-ui = "org.jetbrains.androidx.navigation3:navigation3-ui:1.0.0-alpha06"
 blurhash = { module = "com.vanniktech:blurhash", version = "0.3.0" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-network = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coil" }
 commons-logging = "commons-logging:commons-logging:1.3.5"
 compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = "org.jetbrains.compose.material3:material3:1.10.0-alpha05"
+compose-material3-adaptive-navigation = "org.jetbrains.compose.material3.adaptive:adaptive-navigation3:1.3.0-alpha04"
 compose-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "compose" }
 compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose" }
 compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "compose" }

@@ -1,6 +1,3 @@
-rootProject.name = "playground"
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
 pluginManagement {
   repositories {
     google {
@@ -34,9 +31,9 @@ plugins {
   id("org.gradle.toolchains.foojay-resolver-convention") version ("1.0.0")
 }
 
-include(":core")
-include(":frontend")
-include(":frontend-android")
-include(":frontend-desktop")
-include(":frontend-web")
-include(":server")
+include(":playground")
+include(":playground-frontend")
+include(":playground-frontend-android")
+include(":playground-frontend-desktop")
+include(":playground-frontend-web")
+include(":playground-server")

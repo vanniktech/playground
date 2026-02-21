@@ -2,6 +2,8 @@ package app.playground.frontend.main
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,14 +21,24 @@ import com.benasher44.uuid.uuid4
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
+data class Something(
+  val id: Int,
+  val text: String,
+)
+
 internal data class MainViewModelState(
-  val foo: Int = 5,
+  val items: List<Something>,
 )
 
 internal class MainViewModel(
   private val dependencies: PlaygroundDependencies,
 ) : ViewModel() {
-  private val _state = MutableStateFlow(MainViewModelState())
+  private val _state = MutableStateFlow(MainViewModelState(
+    items = listOf(
+      Something(id = 0, "Hello"),
+      Something(id = 1, "World"),
+    )
+  ))
   val state = _state.asStateFlow()
 }
 
@@ -39,7 +51,11 @@ internal class MainViewModel(
   val state by viewModel.state.collectAsStateWithLifecycle()
 
   Column(Modifier.padding(16.dp)) {
-    Text("Hello World ${state.foo}")
+    LazyColumn {
+      items(state.items, key = { it.id }, contentType = { "Text" }) {
+        Text(it.text)
+      }
+    }
 
     Button(
       onClick = { onNavigate(RouteModal(uuid4().toString())) },

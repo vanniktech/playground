@@ -64,6 +64,7 @@ kotlin {
 
       implementation(libs.androidx.lifecycle.runtime.compose)
       implementation(libs.androidx.lifecycle.viewmodel.compose)
+      implementation(libs.androidx.lifecycle.viewmodel.navigation3)
       implementation(libs.androidx.navigation3.ui)
       implementation(libs.coil.compose)
       implementation(libs.coil.network)

@@ -60,7 +60,7 @@ fun main() {
     Window(
       onCloseRequest = ::exitApplication,
       state = rememberWindowState(width = 800.dp, height = 600.dp),
-      alwaysOnTop = true,
+      alwaysOnTop = false,
       title = stringResource(Res.string.playground_app_name),
     ) {
       window.minimumSize = Dimension(350, 600)

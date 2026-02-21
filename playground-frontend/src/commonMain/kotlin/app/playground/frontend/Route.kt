@@ -10,13 +10,13 @@ import kotlinx.serialization.modules.polymorphic
 internal data object RouteMain : NavKey
 
 @Serializable
-internal data class RouteId(val id: String) : NavKey
+internal data class RouteModal(val id: String) : NavKey
 
 internal val NavKeyConfig = SavedStateConfiguration {
   serializersModule = SerializersModule {
     polymorphic(NavKey::class) {
       subclass(RouteMain::class, RouteMain.serializer())
-      subclass(RouteId::class, RouteId.serializer())
+      subclass(RouteModal::class, RouteModal.serializer())
     }
   }
 }

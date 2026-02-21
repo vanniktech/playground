@@ -24,7 +24,7 @@ class PlaygroundMainActivity : ComponentActivity() {
 
     setContent {
       PlaygroundApp(
-        playgroundDependencies = (application as PlaygroundApplication).dependencies,
+        dependencies = (application as PlaygroundApplication).dependencies,
       )
     }
   }

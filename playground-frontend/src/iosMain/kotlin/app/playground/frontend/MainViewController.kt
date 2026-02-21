@@ -12,7 +12,7 @@ import platform.UIKit.UIViewController
 fun MainViewController(): UIViewController {
   val viewController = ComposeUIViewController {
     PlaygroundApp(
-      playgroundDependencies = PlaygroundDependencies(
+      dependencies = PlaygroundDependencies(
         driver = NativeSqliteDriver(QueryWrapper.Schema.synchronous(), DATABASE_NAME),
         settingsFactory = NSUserDefaultsSettings.Factory(),
         ioDispatcher = Dispatchers.IO,

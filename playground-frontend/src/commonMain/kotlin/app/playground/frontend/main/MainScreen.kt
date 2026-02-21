@@ -21,13 +21,13 @@ import com.benasher44.uuid.uuid4
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-data class Something(
+data class SomethingFoo(
   val id: Int,
   val text: String,
 )
 
 internal data class MainViewModelState(
-  val items: List<Something>,
+  val items: List<SomethingFoo>,
 )
 
 internal class MainViewModel(
@@ -35,8 +35,8 @@ internal class MainViewModel(
 ) : ViewModel() {
   private val _state = MutableStateFlow(MainViewModelState(
     items = listOf(
-      Something(id = 0, "Hello"),
-      Something(id = 1, "World"),
+      SomethingFoo(id = 0, "Hello"),
+      SomethingFoo(id = 1, "World"),
     )
   ))
   val state = _state.asStateFlow()

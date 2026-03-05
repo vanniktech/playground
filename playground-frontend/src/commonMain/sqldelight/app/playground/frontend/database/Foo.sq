@@ -2,6 +2,12 @@ CREATE TABLE foo (
   id TEXT NOT NULL PRIMARY KEY
 );
 
+CREATE TABLE bar (
+  id TEXT NOT NULL PRIMARY KEY,
+  fooId TEXT NOT NULL,
+  FOREIGN KEY(fooId) REFERENCES foo(id)
+);
+
 upsert:
 INSERT OR REPLACE INTO foo
 VALUES ?
@@ -9,4 +15,13 @@ VALUES ?
 
 deleteAll:
 DELETE FROM foo
+;
+
+something:
+SELECT
+  foo.id AS fooId,
+  bar.id AS barId
+  FROM foo
+  JOIN bar
+    ON bar.fooId = foo.id
 ;

@@ -17,7 +17,7 @@ spring = "7.0.3"
 sqldelight = "2.2.1"
 
 [libraries]
-androidx-activity-compose = "androidx.activity:activity-compose:1.12.4"
+androidx-activity-compose = "androidx.activity:activity-compose:1.13.0"
 androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-viewmodel-compose = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-viewmodel-navigation3 = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel-navigation3", version.ref = "androidx-lifecycle" }

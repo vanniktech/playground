@@ -2,6 +2,7 @@ package app.playground.frontend.main
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -16,6 +17,7 @@ import app.playground.frontend.PlaygroundDependencies
 import app.playground.frontend.RouteMain
 import app.playground.frontend.RouteModal
 import com.benasher44.uuid.uuid4
+import io.ktor.client.request.invoke
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
@@ -38,13 +40,9 @@ internal class MainViewModel(
 ) {
   val state by viewModel.state.collectAsStateWithLifecycle()
 
-  Column(Modifier.padding(16.dp)) {
-    Text("Hello World ${state.foo}")
-
-    Button(
-      onClick = { onNavigate(RouteModal(uuid4().toString())) },
-    ) {
-      Text("Navigate")
+  LazyColumn(Modifier.padding(16.dp)) {
+    items(100) {
+      Text((0..it).map { it }.joinToString(separator = ""))
     }
   }
 }

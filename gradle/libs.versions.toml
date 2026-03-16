@@ -14,7 +14,7 @@ ktor = "3.4.1"
 multiplatformsettings = "1.3.0"
 okio = "3.17.0"
 spring = "7.0.4"
-sqldelight = "2.2.1"
+sqldelight = "2.3.2"
 
 [libraries]
 androidx-activity-compose = "androidx.activity:activity-compose:1.12.4"

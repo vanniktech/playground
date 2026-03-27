@@ -4,7 +4,7 @@ compileSdk = "36"
 targetSdk = "36"
 
 agp = "9.1.0"
-androidx-lifecycle = "2.10.0-beta01"
+androidx-lifecycle = "2.10.0"
 coil = "3.4.0"
 compose = "1.10.3"
 kotlin = "2.3.10"

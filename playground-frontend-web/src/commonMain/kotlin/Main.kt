@@ -13,6 +13,7 @@ import kotlin.js.ExperimentalWasmJsInterop
 fun main() = ComposeViewport {
   PlaygroundApp(
     PlaygroundDependencies(
+      packageName = "app.playground.web",
       driver = driver(),
       settingsFactory = object : Settings.Factory {
         override fun create(name: String?): Settings = StorageSettings()

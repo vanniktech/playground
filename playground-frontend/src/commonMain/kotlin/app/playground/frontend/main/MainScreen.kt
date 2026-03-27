@@ -7,6 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.isDebugInspectorInfoEnabled
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -39,7 +40,7 @@ internal class MainViewModel(
   val state by viewModel.state.collectAsStateWithLifecycle()
 
   Column(Modifier.padding(16.dp)) {
-    Text("Hello World ${state.foo}")
+    Text("Hello World ${state.foo} from ${dependencies.packageName}")
 
     Button(
       onClick = { onNavigate(RouteModal(uuid4().toString())) },

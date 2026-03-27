@@ -13,6 +13,7 @@ import timber.log.Timber
 class PlaygroundApplication : Application() {
   val dependencies by lazy(LazyThreadSafetyMode.NONE) {
     PlaygroundDependencies(
+      packageName = BuildConfig.APPLICATION_ID,
       driver = AndroidSqliteDriver(QueryWrapper.Schema.synchronous(), this, DATABASE_NAME),
       settingsFactory = SharedPreferencesSettings.Factory(this),
       ioDispatcher = Dispatchers.IO,

@@ -6,6 +6,7 @@ import com.russhwolf.settings.Settings
 import kotlin.coroutines.CoroutineContext
 
 @Immutable class PlaygroundDependencies(
+  val packageName: String,
   driver: SqlDriver,
   settingsFactory: Settings.Factory,
   val ioDispatcher: CoroutineContext,

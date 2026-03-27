@@ -28,6 +28,10 @@ android {
       isDebuggable = true
     }
   }
+
+  buildFeatures {
+    buildConfig = true
+  }
 }
 
 kotlin {

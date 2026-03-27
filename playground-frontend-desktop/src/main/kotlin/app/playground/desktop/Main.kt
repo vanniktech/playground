@@ -67,6 +67,7 @@ fun main() {
 
       PlaygroundApp(
         PlaygroundDependencies(
+          packageName = "app.playground.desktop",
           driver = sqlDriver,
           settingsFactory = PreferencesSettings.Factory(Preferences.userRoot().node("app.playground")),
           ioDispatcher = Dispatchers.IO,

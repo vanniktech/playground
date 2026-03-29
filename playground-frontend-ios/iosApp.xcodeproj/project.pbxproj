@@ -11,6 +11,7 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		853831DD2F78A46E00CF893B /* DebugPlayground.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853831DB2F78A46E00CF893B /* DebugPlayground.plist */; };
 		859A452F2F77121A0083EE5B /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		859A45302F77121A0083EE5B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		859A45332F77121A0083EE5B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
@@ -24,8 +25,8 @@
 		7555FF7B242A565900829871 /* Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Playground.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Playground.plist; sourceTree = "<group>"; };
+		853831DB2F78A46E00CF893B /* DebugPlayground.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DebugPlayground.plist; sourceTree = "<group>"; };
 		859A45382F77121A0083EE5B /* Debug Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Debug Playground.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		859A45392F77121A0083EE5B /* DebugPlaygroundInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DebugPlayground.plist"; path = "/Users/niklas/dev/GitHub/playground/playground-frontend-ios/DebugPlayground.plist"; sourceTree = "<absolute>"; };
 		AB3632DC29227652001CCB65 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,7 +70,6 @@
 				7555FF7D242A565900829871 /* iosApp */,
 				7555FF7C242A565900829871 /* Products */,
 				42799AB246E5F90AF97AA0EF /* Frameworks */,
-				859A45392F77121A0083EE5B /* DebugPlaygroundInfo.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,10 +85,11 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				058557BA273AAA24004C7B11 /* Assets.xcassets */,
-				7555FF82242A565900829871 /* ContentView.swift */,
+				853831DB2F78A46E00CF893B /* DebugPlayground.plist */,
 				7555FF8C242A565B00829871 /* Playground.plist */,
+				7555FF82242A565900829871 /* ContentView.swift */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
+				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 			);
 			path = iosApp;
@@ -189,6 +190,7 @@
 			files = (
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
+				853831DD2F78A46E00CF893B /* DebugPlayground.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +200,7 @@
 			files = (
 				859A45332F77121A0083EE5B /* Preview Assets.xcassets in Resources */,
 				859A45342F77121A0083EE5B /* Assets.xcassets in Resources */,
+				853831DD2F78A46E00CF893B /* DebugPlayground.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +408,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-lsqlite3";
-				PRODUCT_BUNDLE_IDENTIFIER = "app.playground.ios";
+				PRODUCT_BUNDLE_IDENTIFIER = app.playground.ios;
 				PRODUCT_NAME = "${APP_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -434,7 +437,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-lsqlite3";
-				PRODUCT_BUNDLE_IDENTIFIER = "app.playground.ios";
+				PRODUCT_BUNDLE_IDENTIFIER = app.playground.ios;
 				PRODUCT_NAME = "${APP_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -456,14 +459,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../playground-frontend/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
 				);
-				INFOPLIST_FILE = "DebugPlayground.plist";
+				INFOPLIST_FILE = iosApp/DebugPlayground.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-lsqlite3";
-				PRODUCT_BUNDLE_IDENTIFIER = "app.playground.ios.debug";
+				PRODUCT_BUNDLE_IDENTIFIER = app.playground.ios.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -485,14 +488,14 @@
 					"$(inherited)",
 					"$(SRCROOT)/../playground-frontend/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
 				);
-				INFOPLIST_FILE = "DebugPlayground.plist";
+				INFOPLIST_FILE = iosApp/DebugPlayground.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-lsqlite3";
-				PRODUCT_BUNDLE_IDENTIFIER = "app.playground.ios.debug";
+				PRODUCT_BUNDLE_IDENTIFIER = app.playground.ios.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

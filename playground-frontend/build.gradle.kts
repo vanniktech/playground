@@ -28,7 +28,7 @@ compose.resources {
 }
 
 kotlin {
-  androidLibrary {
+  android {
     namespace = "app.playground.frontend"
     compileSdk = libs.versions.compileSdk.get().toInt()
     minSdk = libs.versions.minSdk.get().toInt()
@@ -41,7 +41,7 @@ kotlin {
   }
 
   jvm()
-  jvmToolchain(17)
+  jvmToolchain(21)
 
   js {
     browser()
@@ -77,6 +77,7 @@ kotlin {
       implementation(libs.ktor.client.logging)
       implementation(libs.sqldelight.coroutines)
       implementation(libs.sqldelight.primitive.adapters)
+      api("co.touchlab.crashkios:crashlytics:0.8.6")
     }
 
     commonTest.dependencies {

@@ -24,12 +24,13 @@ android {
     }
 
     debug {
-      applicationIdSuffix = ".dev"
-      isDebuggable = true
+      multiDexEnabled = true
+      applicationIdSuffix = ".debug"
     }
   }
 
   buildFeatures {
+    compose = true
     buildConfig = true
   }
 }

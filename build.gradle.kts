@@ -1,5 +1,6 @@
 import com.android.build.gradle.api.AndroidBasePlugin
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -49,7 +50,7 @@ subprojects {
     testLogging.exceptionFormat = TestExceptionFormat.FULL
   }
 
-  tasks.withType<KotlinCompile>().configureEach {
+  tasks.withType<KotlinCompilationTask<*>>().configureEach {
     compilerOptions {
       freeCompilerArgs.addAll(
         "-Xconsistent-data-class-copy-visibility",

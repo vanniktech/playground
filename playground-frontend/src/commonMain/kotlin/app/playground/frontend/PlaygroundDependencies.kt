@@ -13,4 +13,8 @@ import kotlin.coroutines.CoroutineContext
 ) {
   val queryWrapper = createQueryWrapper(driver)
   val settings = settingsFactory.create()
+
+  init {
+    queryWrapper.fooQueries.selectCustom().executeAsOneOrNull()?.startDate
+  }
 }

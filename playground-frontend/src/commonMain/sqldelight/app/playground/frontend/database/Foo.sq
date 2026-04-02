@@ -1,5 +1,8 @@
+import app.playground.frontend.Amount;
+
 CREATE TABLE foo (
-  id TEXT NOT NULL PRIMARY KEY
+  id TEXT NOT NULL PRIMARY KEY,
+  amount INTEGER AS Amount
 );
 
 upsert:
@@ -9,4 +12,10 @@ VALUES ?
 
 deleteAll:
 DELETE FROM foo
+;
+
+sum:
+SELECT
+  SUM(COALESCE(amount, 0)) AS sum
+  FROM foo
 ;

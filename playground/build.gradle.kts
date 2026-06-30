@@ -11,7 +11,7 @@ plugins {
 }
 
 kotlin {
-  androidLibrary {
+  android {
     namespace = "app.playground"
     compileSdk = libs.versions.compileSdk.get().toInt()
     minSdk = libs.versions.minSdk.get().toInt()
@@ -31,7 +31,7 @@ kotlin {
   iosArm64()
   iosSimulatorArm64()
   jvm()
-  jvmToolchain(17)
+  jvmToolchain(21)
 
   sourceSets {
     commonMain.dependencies {
